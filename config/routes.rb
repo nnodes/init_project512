@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :users
+
+  namespace :admin do
+    resources :users
+  end
+
   devise_for :users, :path_prefix => 'my', :controllers => {:registrations => "registrations"}
   devise_scope :user do
     authenticated :user do
