@@ -9,7 +9,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
         <% if user_signed_in? %>
-          <li><%= link_to "Home Normal", authenticated_root_path %></li>
+          <li><%= link_to "Home Normal - #{params[:controller]}", authenticated_root_path %></li>
           <% if current_user.admin? %>
             <li><%= link_to "Admin", admin_users_path %></li>
           <% end %>

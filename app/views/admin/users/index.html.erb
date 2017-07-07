@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-md-9">
+    <h3 class="f-30 text-uppercase">Usuarios</h3>
+  </div>
+</div>
+<table class="table admin-users-datatable display m-b-20" data-source="<%= admin_users_url(format: 'json') %>">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Email</th>
+      <th>Activo</th>
+      <th style="width:200px;" data-orderable="false"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  </tbody>
+</table>

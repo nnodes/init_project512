@@ -45,7 +45,7 @@ class UsersDatatable
   def fetch_users
     users = User.order("#{sort_column} #{sort_direction}").page(page).per_page(per_page)
     if params[:sSearch].present?
-      users = users.where("email ilike :search ILIKE :search  OR CAST( users.id AS TEXT) ILIKE :search ", search: "%#{params[:sSearch]}%")
+      users = users.where("CAST( users.id AS TEXT) ILIKE :search OR email ILIKE :search", search: "%#{params[:sSearch]}%")
     end
     users
   end
