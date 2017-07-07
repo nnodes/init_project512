@@ -1,0 +1,99 @@
+es:
+  date:
+    day_names: [Domingo, Lunes, Martes, Miércoles, Jueves, Viernes, Sábado]
+    abbr_day_names: [Dom, Lun, Mar, Mie, Jue, Vie, Sab]
+
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
+    abbr_month_names: [~, Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]
+    order:
+    - :day
+    - :month
+    - :year
+  helpers:
+    links:
+      edit: "Editar"
+      new: "Nuevo"
+    submit:
+      user:
+        create: "Crear Usuario"
+        submit: "Guardar Usuario"
+        update: "Actualizar Usuario"
+      question:
+        create: "Agregar Nueva Pregunta"
+        submit: "Guardar Pregunta"
+        update: "Actualizar Pregunta"
+      reported:
+        create: "Agregar Denuncia"
+        submit: "Guardar Denuncia"
+        update: "Actualizar Denuncia"
+      answer:
+        create: 'Agregar Respuesta'
+        submit: 'Guardar Respuesta'
+        update: 'Actualizar Respuesta'
+      discussion:
+        create: 'Agregar Tema'
+        submit: 'Guardar Tema'
+        update: 'Actualizar Tema'
+      tag:
+        create: 'Agregar Tag'
+        submit: 'Guardar Tag'
+        update: 'Actualizar Tag'
+  activerecord:
+    attributes:
+      user:
+        roles:
+          user: Usuario
+          public_figure: Figura Pública
+          admin: Administrador
+    errors:
+      messages:
+        record_invalid: 'Campo inválido'
+      models:
+        user:
+          attributes:
+            reset_password_token:
+              invalid: "Token inválido"
+            current_password:
+              invalid: 'La contraseña es incorrecta.'
+              blank: 'Debe ingresar su contraseña.'
+            password_confirmation:
+              confirmation: 'Las contraseñas no coinciden.'
+            password:
+              too_short: 'La contraseña debe contener al menos 8 caracteres.'
+              blank: 'Ingrese la contraseña.'
+            email:
+              taken: 'E-mail ya se encuentra registrado, intente ingresar o recuperar contraseña.'
+              blank: 'E-mail no puede ser vacío.'
+              invalid: 'E-mail no tiene el formato correcto'
+            legal_id:
+              taken: 'RUT ya está usado.'
+            first_name:
+              blank: 'Nombre no puede estar en blanco'
+            last_name:
+              blank: 'Apellido no puede estar en blanco'
+            avatar:
+              less_than: 'La imagen elegida supera el peso máximo (5 MB).'
+            avatar_2:
+              less_than: 'La imagen elegida supera el peso máximo (5 MB).'
+        discussion:
+          attributes:
+            name:
+              blank: 'Nombre no puede estar en blanco.'
+            discussion_users:
+              too_short: 'Debe seleccionar al menos una usuario'
+            avatar:
+              less_than: 'La imagen elegida supera el peso máximo (5 MB).'
+            avatar_2:
+              less_than: 'La imagen elegida supera el peso máximo (5 MB).'
+        answer:
+          attributes:
+            discussion_user_id:
+              blank: 'Debe seleccionar un usuario'
+              taken: 'El usuario seleccionado ya tiene asociada una respuesta a esta pregunta'
+            link:
+              blank: 'Link no puede ser blanco.'
+        tag:
+          attributes:
+            name:
+              blank: 'Nombre no puede ser blanco.'
