@@ -23,4 +23,5 @@ Rails.application.routes.draw do
       root 'home#landing', as: :unauthenticated_root
     end
   end
+  get '/:url', to: 'pages#show', as: 'page'
 end

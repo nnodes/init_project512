@@ -9,11 +9,11 @@
     <div class="form-group">
       <%= f.label :url, 'URL' %>
       <div class="input-group">
-        <span class="input-group-addon"><%= unauthenticated_root_url.to_s %></span>
+        <span class="input-group-addon"><%= f.object.active ? unauthenticated_root_url.to_s : authenticated_root_url.to_s %></span>
         <%= f.input :url, input_html: { class: 'form-control ', type: :string} %>
         <% if f.object.url.present? %>
           <span class="input-group-addon">
-            <%= link_to 'Ver Página', admin_page_path(f.object), target: '_blank' %>
+            <%= link_to 'Ver Página', f.object.active ? (unauthenticated_root_url.to_s + f.object.url) : admin_page_path(f.object), target: '_blank' %>
           </span>
         <% end %>
       </div>
@@ -34,6 +34,10 @@
         </span>
         <input type="text" class="form-control" readonly aria-label="<%= :image %>">
       </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :active, 'Publicar' %>
+      <%= f.input :active, input_html: { class: 'form-control '} %>
     </div>
   </div>
   <div class="col-md-offset-8 col-md-4">
