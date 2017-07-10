@@ -6,9 +6,6 @@ module Admin
       @slides = Slide.all
     end
 
-    def show
-    end
-
     def edit
     end
 
@@ -54,7 +51,7 @@ module Admin
 
     def slide_params
       params.require(:slide)
-            .permit(:title, :caption, :image, :video_url)
+            .permit(:title, :caption, :image, :video_url, :active)
     end
   end
 end

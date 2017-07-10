@@ -11,6 +11,7 @@ $(document).on("turbolinks:load", function() {
   $('.default-datatable').dataTable({
     "aaSorting": [[ 0, "asc" ]],
     "bSort": true,
+    'retrieve': true,
     "oLanguage": {
       "sProcessing":     "Procesando...",
       "sLengthMenu":     "Registros por página : _MENU_",

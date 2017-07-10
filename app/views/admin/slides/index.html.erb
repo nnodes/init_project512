@@ -10,6 +10,7 @@
   <thead>
     <tr>
       <th>Título</th>
+      <th>Activo</th>
       <th>Fecha de creación</th>
       <th style="width: 180px;"></th>
     </tr>
@@ -18,6 +19,7 @@
     <% @slides.each do |slide| %>
       <tr>
         <td><%= slide.title %></td>
+        <td><%= slide.active ? 'Si' : 'No' %></td>
         <td><%= slide.created_at %></td>
         <td><%= link_to 'Editar', edit_admin_slide_path(slide),  class: "btn btn-warning btn-xs m-lr-5" %>
             <%= link_to 'Eliminar', admin_slide_path(slide), class: "btn btn-danger btn-xs m-lr-5", method: :delete, data: { confirm: '¿Estás seguro de eliminar este banner?' } %></td>

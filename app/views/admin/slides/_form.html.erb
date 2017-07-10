@@ -27,6 +27,10 @@
         <input type="text" class="form-control" readonly aria-label="<%= :image %>">
       </div>
     </div>
+    <div class="form-group">
+      <%= f.label :active, 'Publicar' %>
+      <%= f.input :active, input_html: { class: 'form-control '} %>
+    </div>
   </div>
   <div class="col-md-offset-8 col-md-4">
     <%= f.submit 'Guardar', class: 'btn btn-primary btn-block m-b-20' %>
