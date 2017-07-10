@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="row">
+      <h2 class="pull-left">Usuario Nº <%= @user.id %></h2>
+      <p class="pull-left" style="margin-top:20px;margin-left:10px;"><%= link_to 'Editar', edit_admin_user_path(@user), class: "btn btn-warning" %> | <%= link_to 'Volver', admin_users_path, class: "btn btn-primary" %></p>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-5">
+        <table class="table table-striped">
+        <caption>Detalles</caption>
+          <tbody>
+            <tr>
+              <td>Email</td>
+              <td><%= @user.email %></td>
+            </tr>
+            <tr>
+              <td>Rol</td>
+              <td><%= @user.role %></td>
+            </tr>
+            <tr>
+              <td>Registro</td>
+              <td><%= l @user.created_at %></td>
+            </tr>
+            <tr>
+              <td>Activo</td>
+              <td><%= @user.active ? '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>'.html_safe : '<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>'.html_safe %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+

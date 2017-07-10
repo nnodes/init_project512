@@ -1,11 +1,12 @@
 $(document).on("turbolinks:load", function() {
   $('.admin-users-datatable').DataTable({
     sPaginationType: "full_numbers",
-    "bSort": true,
+    bSort: true,
     Processing: true,
     bServerSide: true,
+    bDestroy: true,
     sAjaxSource: $('.admin-users-datatable').data('source'),
-    "oLanguage": {
+    oLanguage: {
       "sProcessing":     "Procesando...",
       "sLengthMenu":     "Registros por página : _MENU_",
       "sZeroRecords":    "No se encontraron resultados",

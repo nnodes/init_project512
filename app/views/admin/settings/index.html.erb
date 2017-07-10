@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="row">
+      <div class="col-md-9">
+        <h3 class="f-30 text-uppercase">Configuraciones generales</h3>
+      </div>
+      <div class="col-md-3">
+        <%= link_to "Editar", edit_admin_settings_path, class: "btn btn-warning btn-block btn-sm m-t-20 text-uppercase" %>
+      </div>
+    </div>
+    <table class="table table-condensed display m-b-20">
+        <thead>
+          <tr>
+            <th>Opciones</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+          <tr class="fields">
+            <td>
+              Ejemplo
+            </td>
+            <td colspan="2">
+              <%= @setting['example'] %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>

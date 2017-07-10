@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
   namespace :admin do
+    resources :settings, only: [:index] do
+      collection do
+        get :edit
+        post :update
+      end
+    end
     resources :users
   end
 
