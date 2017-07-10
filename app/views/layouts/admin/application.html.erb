@@ -7,6 +7,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag params[:controller], 'data-turbolinks-track': 'reload' if user_signed_in? %>
+    <%= javascript_include_tag Ckeditor.cdn_url if user_signed_in? && params[:controller] == 'pages' %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 

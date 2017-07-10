@@ -44,6 +44,10 @@ gem 'will_paginate'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jasny-bootstrap-rails', '~> 3.1.3'
 gem 'bootstrap-datepicker-rails', '~> 1.6.4'
+gem 'ckeditor', '~> 4.2.4'
+gem 'paperclip', '~> 5.1.0'
+
+
 
 
 group :development, :test do
