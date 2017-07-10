@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-9">
+    <h2>Banner</h2>
+  </div>
+  <div class="col-md-3">
+    <%= link_to 'Nuevo banner', new_admin_slide_path, class: 'btn btn-primary btn-block btn-sm m-t-20 text-uppercase' %>
+  </div>
+</div>
+<table class="table table-striped default-datatable">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Fecha de creación</th>
+      <th style="width: 180px;"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @slides.each do |slide| %>
+      <tr>
+        <td><%= slide.title %></td>
+        <td><%= slide.created_at %></td>
+        <td><%= link_to 'Editar', edit_admin_slide_path(slide),  class: "btn btn-warning btn-xs m-lr-5" %>
+            <%= link_to 'Eliminar', admin_slide_path(slide), class: "btn btn-danger btn-xs m-lr-5", method: :delete, data: { confirm: '¿Estás seguro de eliminar este banner?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

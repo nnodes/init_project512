@@ -1,0 +1,30 @@
+<%= simple_form_for([:admin, @slide], defaults: { label: false, wrapper: false }, input_html: { class: 'form-control '}) do |f| %>
+  <%= f.error_notification %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <div class="col-md-8">
+    <div class="form-group">
+      <%= f.label :title, 'Título' %>
+      <%= f.input :title, input_html: { class: 'form-control '} %>
+    </div>
+    <div class="form-group">
+      <%= f.label :caption, 'Texto' %>
+      <%= f.input :caption, input_html: { class: 'form-control '} %>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="form-group">
+      <label>Imagen</label>
+      <div class="input-group" style="100%">
+        <span class="input-group-btn">
+          <span class="btn btn-primary btn-file btn-add" style="width:100%;">
+            Examinar&hellip; <%= f.file_field :image, 'accept': 'image/x-png, image/jpeg' %>
+          </span>
+        </span>
+        <input type="text" class="form-control" readonly aria-label="<%= :image %>">
+      </div>
+    </div>
+  </div>
+  <div class="col-md-offset-8 col-md-4">
+    <%= f.submit 'Guardar', class: 'btn btn-primary btn-block m-b-20' %>
+  </div>
+<% end %>

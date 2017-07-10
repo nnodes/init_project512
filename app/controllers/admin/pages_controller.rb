@@ -1,6 +1,6 @@
 module Admin
   class PagesController < AdminController
-    before_action :set_page, only: [:show, :edit, :update, :destroy, :reservations]
+    before_action :set_page, only: [:show, :edit, :update, :destroy]
 
     def index
       @pages = Page.all
