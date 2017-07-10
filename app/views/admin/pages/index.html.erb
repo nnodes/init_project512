@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-9">
+    <h2>Páginas estáticas</h2>
+  </div>
+  <div class="col-md-3">
+    <%= link_to 'Nueva página', new_admin_page_path, class: 'btn btn-primary btn-block btn-sm m-t-20 text-uppercase' %>
+  </div>
+</div>
+<table class="table table-striped default-datatable">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Actualizado por</th>
+      <th>Última actualización</th>
+      <th style="width: 180px;"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pages.each do |page| %>
+      <tr>
+        <td><%= page.title %></td>
+        <td><%= page.author.email %></td>
+        <td><%= page.updated_at %></td>
+        <td><%= link_to 'Ver', admin_page_path(page), class: "btn btn-primary btn-xs m-lr-5" %>
+            <%= link_to 'Editar', edit_admin_page_path(page),  class: "btn btn-warning btn-xs m-lr-5" %>
+            <%= link_to 'Eliminar', admin_page_path(page), class: "btn btn-danger btn-xs m-lr-5", method: :delete, data: { confirm: '¿Estás seguro de eliminar esta página?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

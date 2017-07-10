@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       end
     end
     resources :users
+    resources :pages
   end
 
   devise_for :users, :path_prefix => 'my', :controllers => {:registrations => "registrations"}
@@ -18,6 +19,6 @@ Rails.application.routes.draw do
 
     unauthenticated do
       root 'home#landing', as: :unauthenticated_root
-    end  
+    end
   end
 end

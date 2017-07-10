@@ -1,0 +1,30 @@
+<%= simple_form_for([:admin, @page], defaults: { label: false, wrapper: false }, input_html: { class: 'form-control '}) do |f| %>
+  <%= f.error_notification %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <div class="col-md-8">
+    <div class="form-group">
+      <%= f.label :title, 'Título' %>
+      <%= f.input :title, input_html: { class: 'form-control '} %>
+    </div>
+    <div class="form-group">
+      <%= f.label :url, 'URL' %>
+      <div class="input-group">
+        <span class="input-group-addon"><%= unauthenticated_root_url.to_s %></span>
+        <%= f.input :url, input_html: { class: 'form-control ', type: :string} %>
+        <% if f.object.url.present? %>
+          <span class="input-group-addon">
+            <%= link_to 'Ver Página', (unauthenticated_root_url.to_s + f.object.url), target: '_blank' %>
+          </span>
+        <% end %>
+      </div>
+    </div>
+    <div class="form-group" data-no-turbolinks="true">
+      <label> Contenido </label>
+      <%= f.input :content, input_html: { ckeditor: { toolbar: 'Full' }, class: 'ckeditor-form' } %>
+    </div>
+  </div>
+  
+  <div class="col-md-offset-8 col-md-4">
+    <%= f.submit 'Guardar', class: 'btn btn-primary btn-block m-b-20' %>
+  </div>
+<% end %>
