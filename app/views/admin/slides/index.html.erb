@@ -21,7 +21,8 @@
         <td><%= slide.title %></td>
         <td><%= slide.active ? 'Si' : 'No' %></td>
         <td><%= slide.created_at %></td>
-        <td><%= link_to 'Editar', edit_admin_slide_path(slide),  class: "btn btn-warning btn-xs m-lr-5" %>
+        <td><%= link_to 'Ver', admin_slide_path(slide), class: "btn btn-primary btn-xs m-lr-5" %>
+            <%= link_to 'Editar', edit_admin_slide_path(slide),  class: "btn btn-warning btn-xs m-lr-5" %>
             <%= link_to 'Eliminar', admin_slide_path(slide), class: "btn btn-danger btn-xs m-lr-5", method: :delete, data: { confirm: '¿Estás seguro de eliminar este banner?' } %></td>
       </tr>
     <% end %>

@@ -76,7 +76,7 @@ $(document).on("turbolinks:load", function() {
   $('#home-carousel').bind('slid.bs.carousel', function (e) {
     yt_player = false;
     check_youtube_players();
-    if (!yt_player && !vimeo_playing){
+    if (!yt_player){
       $('#home-carousel').carousel({pause: "hover"});
     }
   });

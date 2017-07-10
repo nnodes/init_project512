@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     end
     resources :users
     resources :pages
-    resources :slides, except: [:show]
+    resources :slides
   end
 
   devise_for :users, :path_prefix => 'my', :controllers => {:registrations => "registrations"}

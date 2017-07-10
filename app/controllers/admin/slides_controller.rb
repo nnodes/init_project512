@@ -1,12 +1,15 @@
 module Admin
   class SlidesController < AdminController
-    before_action :set_slide, only: [:show, :edit, :update, :destroy]
+    before_action :set_slide, only: [:show, :edit, :update, :destroy, :show]
 
     def index
       @slides = Slide.all
     end
 
     def edit
+    end
+
+    def show
     end
 
     def create
