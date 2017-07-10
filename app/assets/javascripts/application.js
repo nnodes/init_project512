@@ -3,6 +3,8 @@
 //= require bootstrap-sprockets
 //= require jasny-bootstrap.min
 //= require dataTables/jquery.dataTables
+//= require bootstrap-datepicker
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.es.js
 //= require turbolinks
 
 $(document).on("turbolinks:load", function() {
@@ -35,5 +37,10 @@ $(document).on("turbolinks:load", function() {
     },
     "iDisplayLength": 25,
     "sPaginationType": "full_numbers"
+  });
+
+  $('.datepicker').datepicker({
+    format: 'dd/mm/yyyy',
+    language: 'es'
   });
 });

@@ -2,6 +2,8 @@
 @import 'variables';
 @import 'bootstrap';
 @import 'jasny-bootstrap.min';
+@import "bootstrap-datepicker3";
+@import "datatables-bootstrap";
 
 html {position: relative;min-height: 100%;}
 body {margin-bottom: 60px;}

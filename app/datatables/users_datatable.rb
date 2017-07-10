@@ -49,6 +49,14 @@ class UsersDatatable
     if params[:sSearch].present?
       users = users.where("CAST( users.id AS TEXT) ILIKE :search OR email ILIKE :search", search: "%#{params[:sSearch]}%")
     end
+
+    if params[:f_start_date].present?
+      users = users.where('users.created_at >= ?', params[:f_start_date].to_date.beginning_of_day)
+    end
+    if params[:f_end_date].present?
+      users = users.where('users.created_at <= ?', params[:f_end_date].to_date.end_of_day)
+    end
+
     users
   end
 
@@ -61,7 +69,7 @@ class UsersDatatable
   end
 
   def sort_column
-    columns = ['users.id', 'users.email', 'users.active', '']
+    columns = ['users.id', 'users.email', 'users.role', 'users.created_at', 'users.active']
     columns[params[:iSortCol_0].to_i]
   end
 
