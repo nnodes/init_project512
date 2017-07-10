@@ -5,4 +5,12 @@ class Slide < ApplicationRecord
                     url: "/slide_images/:style/:id/:filename"
 
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+  validates_presence_of :image, unless: :video_url?
+  validates_presence_of :video_url, unless: :image?, message: 'Debe ingresar una imagen o video'
+
+  before_save :save_youtube_id, if: :video_url?
+
+  def save_youtube_id
+    self.video_id = video_url.split("=").last
+  end
 end

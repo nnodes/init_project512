@@ -1,0 +1,28 @@
+<div class="carousel-inner" role="listbox" >
+  <% if slides.empty? %>
+    <div class="item item_0 active">
+      <img src="<%= asset_path 'default.jpg' %>" alt="...">
+    </div>
+  <% else %>
+    <% slides.each_with_index do |slide, index|%>
+    <div class="item item_<%=index%> <%= index == 0 ? ' active': '' %>" >
+      <% if slide.video_url.present? %>
+        <div class="embed-responsive embed-responsive-16by9">
+          <div id="youtube-player-<%= slide.video_id %>" data-videoid="<%= slide.video_id %>" data-index="<%= index %>">
+          </div>
+        </div>
+      <% elsif slide.image %>
+          <%= image_tag slide.image.url, class: "img-responsive"%>
+        <% if slide.title? || slide.caption? %>
+          <div class="carousel-caption">
+            <div class="caption_content">
+              <h4><%= slide.title %></h4>
+              <p><%= slide.caption %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <% end %>
+  <% end %>
+</div>

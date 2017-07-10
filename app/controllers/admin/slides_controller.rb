@@ -54,7 +54,7 @@ module Admin
 
     def slide_params
       params.require(:slide)
-            .permit(:title, :caption, :image)
+            .permit(:title, :caption, :image, :video_url)
     end
   end
 end

@@ -1,0 +1,15 @@
+<div id="home-carousel" class="carousel slide" data-ride="carousel" data-pause="hover">
+  <!-- Indicators -->
+  <%= render partial: 'slides/home_slide_indicators', locals: { slides: slides } %>
+  <!-- Wrapper for slides -->
+  <%= render partial: 'slides/home_slides', locals: { slides: slides } %>
+  <!-- Controls -->
+  <a class="left carousel-control" href="#home-carousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#home-carousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
