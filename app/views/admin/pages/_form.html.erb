@@ -13,7 +13,7 @@
         <%= f.input :url, input_html: { class: 'form-control ', type: :string} %>
         <% if f.object.url.present? %>
           <span class="input-group-addon">
-            <%= link_to 'Ver Página', (unauthenticated_root_url.to_s + f.object.url), target: '_blank' %>
+            <%= link_to 'Ver Página', admin_page_path(f.object), target: '_blank' %>
           </span>
         <% end %>
       </div>
@@ -23,7 +23,19 @@
       <%= f.input :content, input_html: { ckeditor: { toolbar: 'Full' }, class: 'ckeditor-form' } %>
     </div>
   </div>
-
+  <div class="col-md-4">
+    <div class="form-group">
+      <label>Imagen</label>
+      <div class="input-group" style="100%">
+        <span class="input-group-btn">
+          <span class="btn btn-primary btn-file btn-add" style="width:100%;">
+            Examinar&hellip; <%= f.file_field :image, 'accept': 'image/x-png, image/jpeg' %>
+          </span>
+        </span>
+        <input type="text" class="form-control" readonly aria-label="<%= :image %>">
+      </div>
+    </div>
+  </div>
   <div class="col-md-offset-8 col-md-4">
     <%= f.submit 'Guardar', class: 'btn btn-primary btn-block m-b-20' %>
   </div>
