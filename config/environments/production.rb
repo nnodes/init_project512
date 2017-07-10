@@ -80,6 +80,18 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
+  config.action_mailer.smtp_settings = {
+    user_name: ENV['SMPT_USERNAME'],
+    password: ENV['SMPT_PASSWORD'],
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    authentication: :plain,
+    enable_starttls_auto: true
+  }
+  config.action_mailer.default_url_options = { host: 'https://nnodes.com' }
+  config.action_mailer.default_options     = { from: 'UCP <no-reply@nnodes.com>',
+                                                  "X-SMTPAPI": '{"category": ["NNODES INIT"]}' }
+
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
