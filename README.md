@@ -1,24 +1,52 @@
-# README
+# Nnodes Defaults
+Ruby 2.4.1
+Rails 5.1.2+
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Setup
+`git clone git@github.com:nnodes/init_project512.git`
+`bundle install`
+`yarn install`
 
-Things you may want to cover:
+Setup config/database.yml
+Example:
+```yaml
+default: &default
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+  encoding: utf-8
+  username: USERNAME
+  password: 'PASSWORD'
+development:
+  <<: *default
+  database: dev_db
+test:
+  <<: *default
+  database: test_db
+production:
+  <<: *default
+  database: prod_db
+```
+Setup config/secrets.yml
+Example:
+```yaml
+development:
+  secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
+test:
+  secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
+production:
+  secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
+```
 
-* Ruby version
+Setup .env
+Example:
+```
+SECRET_KEY_BASE=sample
+SMPT_USERNAME=username
+SMPT_PASSWORD=password
+```
+`rails db:create`
+`rails db:migrate`
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Optional:
+`rails db:seed`
