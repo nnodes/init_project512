@@ -1,5 +1,5 @@
 module Admin
-  class PagesController < ApplicationController
+  class PagesController < AdminController
     before_action :set_page, only: [:show, :edit, :update, :destroy, :reservations]
 
     def index
@@ -17,7 +17,7 @@ module Admin
 
       respond_to do |format|
         if @page.save
-          format.html { redirect_to admin_page_path(@page), notice: 'Página creada exitosamente' }
+          format.html { redirect_to admin_pages_path, notice: 'Página creada exitosamente' }
           format.json { render :show, status: :created, location: @page }
         else
           format.html { render :new }
@@ -29,7 +29,7 @@ module Admin
     def update
       respond_to do |format|
         if @page.update(page_params)
-          format.html { redirect_to admin_page_path(@page), notice: 'Usuario actualizado exitosamente' }
+          format.html { redirect_to admin_pages_path, notice: 'Página actualizada exitosamente' }
           format.json { render :show, status: :ok, location: @page }
         else
           format.html { render :edit }
@@ -41,7 +41,7 @@ module Admin
     def destroy
       @page.destroy
       respond_to do |format|
-        format.html { redirect_to admin_pages_url, notice: 'Usuario eliminado exitosamente' }
+        format.html { redirect_to admin_pages_url, notice: 'Página eliminada exitosamente' }
         format.json { head :no_content }
       end
     end

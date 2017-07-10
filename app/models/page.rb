@@ -6,4 +6,7 @@ class Page < ApplicationRecord
                     url: "/images/:style/:id/:filename"
 
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+
+  validates :title, presence: true
+  validates :url, :title, uniqueness: true
 end
