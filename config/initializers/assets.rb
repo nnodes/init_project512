@@ -21,3 +21,4 @@ admin_controller_names = admin_controller_names - ['admin/admin']
 (controller_names + admin_controller_names).each do |controller|
   Rails.application.config.assets.precompile += ["#{controller}.js"]
 end
+Rails.application.config.assets.precompile += %w( navmenu.css )

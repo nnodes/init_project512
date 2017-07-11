@@ -1,19 +1,24 @@
-<div class="col-md-4 col-md-offset-4">
-  <div class="card">
-    <img class="logo m-b-30" alt="Nnodes" src="<%= asset_path 'logo.png' %>" height="50">
-  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-inputs">
-      <label>Nombre</label>
-      <%= f.input :email, required: false, autofocus: true, wrapper:false, label:false, input_html: {class: "box"} %>
-      <label>Contraseña</label>
-      <%= f.input :password, required: false, wrapper:false, label:false, input_html: {class: "box"} %>
-    </div>
+<div class="row row-eq-height row-flex-center full-height-login">
+  <div class="col-md-4">
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-inputs">
+        <div class="form-group">
+          <label>Email</label>
+          <%= f.input :email, required: false, autofocus: true, wrapper:false, label:false, input_html: {class: "form-control"} %>
+        </div>
+        <div class="form-group">
+          <label>Contraseña</label>
+          <%= f.input :password, required: false, wrapper:false, label:false, input_html: {class: "form-control"} %>
+        </div>
+        <div class="checkbox-small">
+          <%= f.input :remember_me, label: "Recuérdame", as: :boolean if devise_mapping.rememberable? %>
+        </div>
+      </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Log in", class: "btn-primary btn btn-full" %>
-    </div>
-  <% end %>
-
-  <%= render "devise/shared/links" %>
+      <div class="form-actions">
+        <%= f.button :submit, "Log in", class: "btn-primary btn btn-block" %>
+      </div>
+    <% end %>
+    <%= render "devise/shared/links" %>
   </div>
 </div>

@@ -40,6 +40,8 @@ $(document).on("turbolinks:load", function() {
     "sPaginationType": "full_numbers"
   });
 
+  $(".alert" ).delay(2000).fadeOut(3000);
+
   $('.datepicker').datepicker({
     format: 'dd/mm/yyyy',
     language: 'es'
