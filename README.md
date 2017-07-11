@@ -4,7 +4,9 @@ Rails 5.1.2+
 
 ### Setup
 `git clone git@github.com:nnodes/init_project512.git`
+
 `bundle install`
+
 `yarn install`
 
 Setup config/database.yml
@@ -46,6 +48,7 @@ SMPT_USERNAME=username
 SMPT_PASSWORD=password
 ```
 `rails db:create`
+
 `rails db:migrate`
 
 Optional:
