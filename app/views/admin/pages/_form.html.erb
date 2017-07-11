@@ -1,29 +1,38 @@
 <%= simple_form_for([:admin, @page], defaults: { label: false, wrapper: false }, input_html: { class: 'form-control '}) do |f| %>
   <%= f.error_notification %>
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <div class="col-md-8">
-    <div class="form-group">
-      <%= f.label :title, 'Título' %>
-      <%= f.input :title, input_html: { class: 'form-control '} %>
+    <div class="form-group row">
+      <%= f.label :title, 'Título', class: "col-sm-4 control-label" %>
+      <div class="col-sm-8">
+      <%= f.input :title, input_html: { class: 'form-control' }, label: false, wrapper: false %>
+      </div>
     </div>
-    <div class="form-group">
-      <%= f.label :url, 'URL' %>
-      <div class="input-group">
-        <span class="input-group-addon"><%= f.object.active ? unauthenticated_root_url.to_s : authenticated_root_url.to_s %></span>
-        <%= f.input :url, input_html: { class: 'form-control ', type: :string} %>
-        <% if f.object.url.present? %>
-          <span class="input-group-addon">
-            <%= link_to 'Ver Página', f.object.active ? (unauthenticated_root_url.to_s + f.object.url) : admin_page_path(f.object), target: '_blank' %>
-          </span>
-        <% end %>
+    <div class="form-group row">
+      <%= f.label :url, 'URL', class: "col-sm-4 control-label" %>
+      <div class="col-sm-8">
+        <div class="input-group">
+          <span class="input-group-addon"><%= f.object.active ? unauthenticated_root_url.to_s : authenticated_root_url.to_s %></span>
+          <%= f.input :url, input_html: { class: 'form-control ', type: :string} %>
+          <% if f.object.url.present? %>
+            <span class="input-group-addon">
+              <%= link_to 'Ver Página', f.object.active ? (unauthenticated_root_url.to_s + f.object.url) : admin_page_path(f.object), target: '_blank' %>
+            </span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :active, 'Publicar', class: "col-sm-4 control-label" %>
+      <div class="col-sm-8">
+        <div class="checkbox-small">
+          <%= f.input :active %>
+        </div>
       </div>
     </div>
     <div class="form-group" data-no-turbolinks="true">
       <label> Contenido </label>
       <%= f.input :content, input_html: { ckeditor: { toolbar: 'Full' }, class: 'ckeditor-form' } %>
     </div>
-  </div>
-  <div class="col-md-4">
     <div class="form-group">
       <label>Imagen</label>
       <div class="input-group" style="100%">
@@ -35,12 +44,9 @@
         <input type="text" class="form-control" readonly aria-label="<%= :image %>">
       </div>
     </div>
-    <div class="form-group">
-      <%= f.label :active, 'Publicar' %>
-      <%= f.input :active, input_html: { class: 'form-control '} %>
+    <div class="form-actions row m-b-20">
+      <div class="col-md-3 pull-right">
+        <%= f.submit 'Guardar', class: "btn btn-success btn-block" %>
+      </div>
     </div>
-  </div>
-  <div class="col-md-offset-8 col-md-4">
-    <%= f.submit 'Guardar', class: 'btn btn-primary btn-block m-b-20' %>
-  </div>
 <% end %>

@@ -1,6 +1,6 @@
 <div class="row row-eq-height row-flex-center full-height-login">
   <div class="col-md-4">
-    <h2>Cambiar contraseña</h2>
+    <h3 class="text-uppercase">Cambiar contraseña</h3>
     <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
       <%= f.error_notification %>
       <%= f.input :reset_password_token, as: :hidden %>

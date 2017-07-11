@@ -6,9 +6,14 @@
     <%= link_to 'Nuevo banner', new_admin_slide_path, class: 'btn btn-primary btn-block btn-sm m-t-20 text-uppercase' %>
   </div>
 </div>
-<%= render partial: 'slides/home_carousel', locals: { slides: @slides.where(active: true) } %>
+<div class="banner">
+  <div class="content">
+    <%= render partial: 'slides/home_carousel', locals: { slides: @slides.where(active: true) } %>
+  </div>
+</div>
 
-<table class="table table-striped default-datatable">
+
+<table class="table table-striped default-datatable m-b-20">
   <thead>
     <tr>
       <th>Título</th>
