@@ -29,6 +29,7 @@ module Admin
     def update
       respond_to do |format|
         if @page.update(page_params)
+          @page.image.reprocess! if image_edit(params[:page])
           format.html { redirect_to admin_pages_path, notice: 'Página actualizada exitosamente' }
           format.json { render :show, status: :ok, location: @page }
         else

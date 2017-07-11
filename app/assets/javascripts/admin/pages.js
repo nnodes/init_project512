@@ -2,9 +2,9 @@
 //= require admin/upload_button
 //= require jquery.Jcrop
 
-var crop_ratio = 1;
 var jcrop_api = null;
 var ratio = 1;
+// var crop_ratio = 1; uncomment for set crop dimensions
 
 function update_crop(coords) {
   $('#crop_x').val(coords.x*ratio);
@@ -15,7 +15,6 @@ function update_crop(coords) {
 
 
 $(document).on('turbolinks:load page:restore', function(){
-  /*
   $('#page-crop').on('click', function(event){
     var full = $('#cropbox').data('full')
     var original_width = parseInt(($('#cropbox').data('width')).split('x')[0])
@@ -27,13 +26,12 @@ $(document).on('turbolinks:load page:restore', function(){
     $('#cropbox').Jcrop({
       onChange: update_crop,
       onSelect: update_crop,
-      setSelect: [0, 0, width, height],
-      aspectRatio: crop_ratio
+      setSelect: [0, 0, width, height]
+      //aspectRatio: crop_ratio
     }, function(){
       jcrop_api = this;
     });
   });
-  */
 
   $('#page_image').on('change', function(event) {
     var files = event.target.files;
@@ -58,7 +56,7 @@ $(document).on('turbolinks:load page:restore', function(){
         onChange: update_crop,
         onSelect: update_crop,
         setSelect: [0, 0, width, height]
-        //aspectRatio: crop_ratio 
+        //aspectRatio: crop_ratio
       }, function(){
         jcrop_api = this;
       });

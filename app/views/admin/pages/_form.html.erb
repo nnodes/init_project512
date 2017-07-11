@@ -39,7 +39,6 @@
       <% if f.object.image.exists? && f.object.id %>
         <div class="m-b-10" data-toggle="buttons" style="width:100%;">
           <button type="button" class="btn btn-success crop-btn" id="page-crop" style="width:49%;">Editar recorte</button>
-          <%# TODO: Erase image without reloading %>
           <%= link_to 'Borrar Imagen', image_admin_pages_path(f.object), data: { confirm: '¿Estás seguro que deseas eliminar la imagen?' },
               remote: true, class: 'btn btn-primary', style: "width:49%;"%>
         </div>
