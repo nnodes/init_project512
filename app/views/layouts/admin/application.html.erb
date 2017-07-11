@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'navmenu', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag params[:controller], 'data-turbolinks-track': 'reload' if user_signed_in? %>
     <%= javascript_include_tag Ckeditor.cdn_url if user_signed_in? && params[:controller] == 'pages' %>
@@ -12,11 +13,12 @@
   </head>
 
   <body>
-    <%= render "layouts/admin/menu" %>
-	  <div class="container content">
-	    <p id="notice"><%= bootstrap_flash %></p>
-	    <%= yield %>
-	  </div>
-	  <%= render "layouts/admin/footer" %>
+    <%= render "layouts/admin/menu"%>
+    <%= render "layouts/admin/sidebar"%>
+    <div class="container">
+      <p id="notice"><%= bootstrap_flash %></p>
+      <%= yield %>
+    </div>
+    <%# render partial: "layouts/admin/footer" %>
   </body>
 </html>

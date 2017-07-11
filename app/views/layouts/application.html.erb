@@ -12,10 +12,11 @@
 
   <body>
     <%= render "layouts/menu" %>
-	  <div class="container content">
-	    <p id="notice"><%= bootstrap_flash %></p>
-	    <%= yield %>
-	  </div>
-	  <%= render "layouts/footer" %>
+    <div class="container-fluid">
+      <p id="notice"><%= bootstrap_flash %></p>
+      <%= yield %>
+    </div>
+    <%= render "layouts/footer" %>
+
   </body>
 </html>

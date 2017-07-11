@@ -2,20 +2,16 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="/">
-        <img class="logos" alt="INIT" src="<%= asset_path 'logo.png' %>" height="20">
+        <img class="logos" alt="Nnodes" src="<%= asset_path 'logo.svg' %>" height="20">
       </a>
     </div>
-    
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
         <% if user_signed_in? %>
+        <ul class="nav navbar-nav">
           <li><%= link_to "Home", authenticated_root_path %></li>
           <% if current_user.admin? %>
             <li><%= link_to "Admin", admin_users_path %></li>
           <% end %>
-        <% else %>
-          <li><%= link_to "Iniciar sesión", new_user_session_path %></li>
-        <% end %>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
@@ -28,6 +24,11 @@
             </ul>
           </li>
         </ul>
+        <% else %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Iniciar sesión", new_user_session_path %></li>
+        </ul>
+        <% end %>
       </div>
   </div>
 </nav>
