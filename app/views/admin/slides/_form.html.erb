@@ -7,7 +7,7 @@
         <img src="<%= f.object.image.url(:cropped) %>" class="image-preview-tag" id=cropbox style="width:100%;height:auto",
         data-full="<%= f.object.image.url(:original) %>", data-width="<%=Paperclip::Geometry.from_file(f.object.image)%>">
       <% else %>
-        <img class="image-preview-tag" id=cropbox>
+        <img src="<%= asset_path('default.png') %>" class="image-preview-tag" id=cropbox>
       <% end %>
       <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
         <%= f.hidden_field attribute, id: attribute %>

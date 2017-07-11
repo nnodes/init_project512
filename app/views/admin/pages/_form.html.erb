@@ -33,17 +33,6 @@
       <label> Contenido </label>
       <%= f.input :content, input_html: { ckeditor: { toolbar: 'Full' }, class: 'ckeditor-form' } %>
     </div>
-    <div class="form-group">
-      <label>Imagen</label>
-      <div class="input-group" style="100%">
-        <span class="input-group-btn">
-          <span class="btn btn-primary btn-file btn-add" style="width:100%;">
-            Examinar&hellip; <%= f.file_field :image, 'accept': 'image/x-png, image/jpeg' %>
-          </span>
-        </span>
-        <input type="text" class="form-control" readonly aria-label="<%= :image %>">
-      </div>
-    </div>
     <div class="form-actions row m-b-20">
       <div class="col-md-3 pull-right">
         <%= f.submit 'Guardar', class: "btn btn-success btn-block" %>
