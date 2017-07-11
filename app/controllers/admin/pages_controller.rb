@@ -1,6 +1,6 @@
 module Admin
   class PagesController < AdminController
-    before_action :set_page, only: [:show, :edit, :update, :destroy]
+    before_action :set_page, only: [:show, :edit, :update, :destroy, :destroy_image]
 
     def index
       @pages = Page.all
@@ -43,6 +43,13 @@ module Admin
       respond_to do |format|
         format.html { redirect_to admin_pages_url, notice: 'Página eliminada exitosamente' }
         format.json { head :no_content }
+      end
+    end
+
+    def destroy_image
+      if @page.present?
+        @page.image.destroy
+        @page.save
       end
     end
 

@@ -9,7 +9,11 @@ Rails.application.routes.draw do
       end
     end
     resources :users
-    resources :pages
+    resources :pages do
+      collection do
+        get '/:id/image', to: 'pages#destroy_image', as: 'image'
+      end
+    end
     resources :slides
   end
 
