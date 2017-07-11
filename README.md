@@ -10,6 +10,7 @@ Rails 5.1.2+
 `yarn install`
 
 Setup config/database.yml
+
 Example:
 ```yaml
 default: &default
@@ -30,6 +31,7 @@ production:
   database: prod_db
 ```
 Setup config/secrets.yml
+
 Example:
 ```yaml
 development:
@@ -41,6 +43,7 @@ production:
 ```
 
 Setup .env
+
 Example:
 ```
 SECRET_KEY_BASE=sample
