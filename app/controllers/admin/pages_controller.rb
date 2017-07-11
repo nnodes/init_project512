@@ -1,6 +1,6 @@
 module Admin
   class PagesController < AdminController
-    before_action :set_page, only: [:show, :edit, :update, :destroy, :destroy_image]
+    before_action :set_page, only: [:show, :edit, :update, :destroy]
 
     def index
       @pages = Page.all
@@ -29,7 +29,6 @@ module Admin
     def update
       respond_to do |format|
         if @page.update(page_params)
-          @page.image.reprocess! if image_edit(params[:page])
           format.html { redirect_to admin_pages_path, notice: 'Página actualizada exitosamente' }
           format.json { render :show, status: :ok, location: @page }
         else
@@ -47,13 +46,6 @@ module Admin
       end
     end
 
-    def destroy_image
-      if @page.present?
-        @page.image.destroy
-        @page.save
-      end
-    end
-
     private
 
     def set_page
@@ -62,8 +54,7 @@ module Admin
 
     def page_params
       params.require(:page)
-            .permit(:title, :active, :content, :url, :user_id, :crop_x, :crop_y,
-                    :crop_w, :crop_h, :image)
+            .permit(:title, :active, :content, :url, :user_id)
     end
   end
 end

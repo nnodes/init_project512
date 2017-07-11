@@ -1,6 +1,6 @@
 module Admin
   class SlidesController < AdminController
-    before_action :set_slide, only: [:show, :edit, :update, :destroy, :show]
+    before_action :set_slide, only: [:show, :edit, :update, :destroy, :show, :destroy_image]
 
     def index
       @slides = Slide.all
@@ -14,7 +14,6 @@ module Admin
 
     def create
       @slide = Slide.new(slide_params)
-
       respond_to do |format|
         if @slide.save
           format.html { redirect_to admin_slides_path, notice: 'Banner creado exitosamente' }
@@ -29,6 +28,7 @@ module Admin
     def update
       respond_to do |format|
         if @slide.update(slide_params)
+          @slide.image.reprocess! if image_edit(params[:slide])
           format.html { redirect_to admin_slides_path, notice: 'Banner actualizado exitosamente' }
           format.json { render :show, status: :ok, location: @slide }
         else
@@ -46,6 +46,13 @@ module Admin
       end
     end
 
+    def destroy_image
+      if @page.present?
+        @page.image.destroy
+        @page.save
+      end
+    end
+
     private
 
     def set_slide
@@ -54,7 +61,8 @@ module Admin
 
     def slide_params
       params.require(:slide)
-            .permit(:title, :caption, :image, :video_url, :active)
+            .permit(:title, :caption, :video_url, :active, :crop_x, :crop_y,
+                    :crop_w, :crop_h, :image)
     end
   end
 end
