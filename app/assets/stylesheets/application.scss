@@ -18,6 +18,9 @@ body {
   &.padding {
     padding-top: 56px;
   }
+  @media (max-width: 992px) {
+    padding-top: 56px;
+  }
 }
 #notice {
   margin: 0;
@@ -214,7 +217,71 @@ p {
     }
   }
 }
-
+@media (max-width: 992px) {
+  .home-navmenu {
+    &.navmenu-default {
+      background-color: $brand-primary;
+      border-color: #e7e7e7;
+      .navmenu-brand {
+        width: 210px;
+        margin: 20px auto;
+        padding: 0;
+        .brand {
+          width: 110px;
+          margin: 0 auto;
+          display: block;
+        }
+        .user {
+          p {
+            color: white;
+            max-width: 160px;
+          }
+        }
+      }
+      .navmenu-nav {
+        li {
+          a {
+            color: white;
+            padding-left: 20px;
+            i, img {
+              margin-right: 10px;
+            }
+            &:hover, &:focus {
+              background: lighten($brand-primary, 5%);
+              color: white;
+            }
+          }
+          &.active {
+            a {
+              background: $brand-success;
+              color: white;
+              &:hover, &:focus {
+                background: lighten($brand-success, 5%);
+                color: white;
+              }
+            }
+          }
+        }
+      }
+    }
+    &.navmenu,
+    .navbar-offcanvas {
+      width: 220px;
+    }
+    &.navmenu-fixed-right,
+    .navbar-offcanvas {
+     right: 0;
+     left: 320px;
+    }
+    // .navbar-header {
+    //   margin-right: 0;
+    // }
+  }
+  .navbar-toggle {
+    float: left;
+    margin-left: 15px;
+  }
+}
 .footer {
   position: absolute;
   bottom: 0;

@@ -13,18 +13,20 @@
     <%= text_field_tag 'f_end_date', (Date.today).strftime('%d/%m/%Y'), class: "datepicker date-filter form-control", placeholder: "dd/mm/yyyy", readonly: true %>
   </div>
 </div>
-<table class="table admin-users-datatable display m-b-20" data-source="<%= admin_users_url(format: 'json') %>">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Email</th>
-      <th>Rol</th>
-      <th>Registro</th>
-      <th>Activo</th>
-      <th style="width:140px;" data-orderable="false"></th>
-    </tr>
-  </thead>
+<div class="table-responsive">
+  <table class="table admin-users-datatable display m-b-20" data-source="<%= admin_users_url(format: 'json') %>">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Email</th>
+        <th>Rol</th>
+        <th>Registro</th>
+        <th>Activo</th>
+        <th style="width:140px;" data-orderable="false"></th>
+      </tr>
+    </thead>
 
-  <tbody>
-  </tbody>
-</table>
+    <tbody>
+    </tbody>
+  </table>
+</div>
