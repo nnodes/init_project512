@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
   respond_to :html
-  skip_authorization_check
 
   def show
     @page = Page.find_by(url: params[:url])

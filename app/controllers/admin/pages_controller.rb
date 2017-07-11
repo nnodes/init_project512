@@ -54,7 +54,8 @@ module Admin
 
     def page_params
       params.require(:page)
-            .permit(:title, :active, :content, :url, :user_id, :image)
+            .permit(:title, :active, :content, :url, :user_id, :crop_x, :crop_y,
+                    :crop_w, :crop_h, :image)
     end
   end
 end

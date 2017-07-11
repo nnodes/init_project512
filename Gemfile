@@ -46,6 +46,7 @@ gem 'jasny-bootstrap-rails', '~> 3.1.3'
 gem 'bootstrap-datepicker-rails', '~> 1.6.4'
 gem 'ckeditor', '~> 4.2.4'
 gem 'paperclip', '~> 5.1.0'
+gem 'jcrop-rails-v2', '~> 0.9.12.3'
 
 
 

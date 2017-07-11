@@ -1,7 +1,8 @@
 class Page < ApplicationRecord
   belongs_to :author, class_name: 'User', foreign_key: 'user_id'
   has_attached_file :image,
-                    styles: { original: {} },
+                    styles: { original: {},
+                              cropped: { processors: [:cropper] } },
                     path: ":rails_root/public/images/:style/:id/:filename",
                     url: "/images/:style/:id/:filename"
 
@@ -11,6 +12,8 @@ class Page < ApplicationRecord
   validates :url, :title, uniqueness: true
 
   before_save :add_url, unless: :url?
+
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
 
   def add_url
     invalids = ['?', ';', '&', '.', '=', ':', '"', "'", '#']
