@@ -27,6 +27,26 @@
         <input type="text" class="form-control" readonly aria-label="<%= :image %>">
       </div>
     </div>
+    <div id="image-options">
+      <% if f.object.image.exists? && f.object.id %>
+        <div class="m-b-10" data-toggle="buttons" style="width:100%;">
+          <button type="button" class="btn btn-success crop-btn" id="slide-crop" style="width:49%;">Editar recorte</button>
+          <%= link_to 'Borrar Imagen', image_admin_slides_path(f.object), data: { confirm: '¿Estás seguro que deseas eliminar la imagen?' },
+              remote: true, class: 'btn btn-primary', style: "width:49%;"%>
+        </div>
+      <% end %>
+    </div>
+    <div id="image-preview" class="m-b-10">
+      <% if f.object.image.exists? && f.object.id %>
+        <img src="<%= f.object.image.url(:cropped) %>" class="image-preview-tag" id=cropbox style="width:100%;height:auto",
+        data-full="<%= f.object.image.url(:original) %>", data-width="<%=Paperclip::Geometry.from_file(f.object.image)%>">
+      <% else %>
+        <img class="image-preview-tag" id=cropbox>
+      <% end %>
+      <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
+        <%= f.hidden_field attribute, id: attribute %>
+      <% end %>
+    </div>
     <div class="form-group">
       <%= f.label :active, 'Publicar' %>
       <%= f.input :active, input_html: { class: 'form-control '} %>

@@ -12,7 +12,7 @@
           </div>
         </div>
       <% elsif slide.image %>
-          <%= image_tag slide.image.url, class: "img-responsive"%>
+          <%= image_tag slide.image.url(:cropped), class: "img-responsive"%>
         <% if slide.title? || slide.caption? %>
           <div class="carousel-caption">
             <div class="caption_content">

@@ -10,7 +10,11 @@ Rails.application.routes.draw do
     end
     resources :users
     resources :pages
-    resources :slides
+    resources :slides do
+      collection do
+        get '/:id/image', to: 'slides#destroy_image', as: 'image'
+      end
+    end
   end
 
   devise_for :users, :path_prefix => 'my', :controllers => {:registrations => "registrations"}
