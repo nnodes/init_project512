@@ -1,7 +1,7 @@
 <div class="carousel-inner" role="listbox" >
   <% if slides.empty? %>
     <div class="item item_0 active">
-      <img src="" alt="...">
+      <img src="<%= asset_path('default.png')%>" alt="...">
     </div>
   <% else %>
     <% slides.each_with_index do |slide, index|%>
