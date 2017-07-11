@@ -39,10 +39,15 @@ module Admin
     end
 
     def destroy
-      @page.destroy
       respond_to do |format|
-        format.html { redirect_to admin_pages_url, notice: 'Página eliminada exitosamente' }
-        format.json { head :no_content }
+        if @page.home_page
+          @page.destroy
+          format.html { redirect_to admin_pages_url, notice: 'Página eliminada exitosamente' }
+          format.json { head :no_content }
+        else
+          format.html { redirect_to admin_pages_url, notice: 'Esta página no puede ser eliminada' }
+          format.json { head :no_content }
+        end
       end
     end
 

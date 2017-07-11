@@ -23,7 +23,7 @@
         <td><%= page.updated_at %></td>
         <td><%= link_to 'Ver', admin_page_path(page), class: "btn btn-primary btn-xs m-lr-5" %>
             <%= link_to 'Editar', edit_admin_page_path(page),  class: "btn btn-warning btn-xs m-lr-5" %>
-            <%= link_to 'Eliminar', admin_page_path(page), class: "btn btn-danger btn-xs m-lr-5", method: :delete, data: { confirm: '¿Estás seguro de eliminar esta página?' } %></td>
+            <%= link_to 'Eliminar', admin_page_path(page), class: "btn btn-danger btn-xs m-lr-5", method: :delete, data: { confirm: '¿Estás seguro de eliminar esta página?' } if page.home_page %></td>
       </tr>
     <% end %>
   </tbody>
