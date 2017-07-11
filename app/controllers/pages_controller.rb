@@ -4,7 +4,7 @@ class PagesController < ApplicationController
 
   def show
     @page = Page.find_by(url: params[:url])
-    if @page.present?
+    if @page.present? && @page.active
       respond_with(@page)
     else
       render_404
