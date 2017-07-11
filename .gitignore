@@ -30,6 +30,7 @@ capybara-*.html
 /public/system
 /public/images
 /public/slide_images
+/public/ckeditor_assets
 /coverage/
 /spec/tmp
 **.orig

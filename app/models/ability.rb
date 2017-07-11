@@ -9,9 +9,10 @@ class Ability
         can :manage, :all
       end
     else
-      if user.id.present?
+      if user.id.present? and user.admin?
+        can :manage, :all
+      elsif user.id.present?
         can :read, :all
-        # Ability for logged users
       else
         can :read, :all
         # Non logged users
