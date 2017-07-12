@@ -21,6 +21,7 @@ $(document).on("turbolinks:load", function() {
       },
       'page[url]': {
         required: true,
+        url: false
       }
     }
   });
