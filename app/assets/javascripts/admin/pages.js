@@ -11,7 +11,6 @@ $(document).on("turbolinks:load", function() {
     url = url.replace(re, function(matched){
       return invalids[matched.toLowerCase()];
     });
-    console.log(url);
     var parse_url = encodeURIComponent(url);
     $("#page_url").val(parse_url);
   });

@@ -1,9 +1,9 @@
 <ol class="carousel-indicators">
   <% if slides.empty? %>
-    <li data-target="#home-carousel" data-slide-to="0" class="active"></li>
+    <li data-target="#nn-home-carousel" data-slide-to="0" class="active"></li>
   <% else %>
     <% slides.each_with_index do |slide, index| %>
-      <li data-target="#home-carousel" data-slide-to="<%= index %>"
+      <li data-target="#nn-home-carousel" data-slide-to="<%= index %>"
         class="<%= index == 0 ? "active" : "" %>"></li>
     <% end %>
   <% end %>

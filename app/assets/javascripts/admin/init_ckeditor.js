@@ -2,7 +2,7 @@
 
 var root = location.origin;
 $(document).on('turbolinks:load', function(){
-  $('.ckeditor-form').each(function() {
+  $('.nn-ckeditor-form').each(function() {
       CKEDITOR.replace( $(this).attr('id'),{
         filebrowserImageBrowseUrl: root + "/ckeditor/pictures",
         filebrowserImageUploadUrl: root + "/ckeditor/pictures",

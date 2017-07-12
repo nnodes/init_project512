@@ -1,3 +1,6 @@
+<%= javascript_include_tag Ckeditor.cdn_url %>
+
+
 <%= simple_form_for([:admin, @page], defaults: { label: false, wrapper: false }, input_html: { class: 'form-control '}) do |f| %>
   <%= f.error_notification %>
   <%= f.hidden_field :user_id, value: current_user.id %>
@@ -31,7 +34,7 @@
     </div>
     <div class="form-group" data-no-turbolinks="true">
       <label> Contenido </label>
-      <%= f.input :content, input_html: { ckeditor: { toolbar: 'Full' }, class: 'ckeditor-form' } %>
+      <%= f.input :content, input_html: { ckeditor: { toolbar: 'Full' }, class: 'nn-ckeditor-form' } %>
     </div>
     <div class="form-actions row m-b-20">
       <div class="col-md-3 pull-right">

@@ -16,7 +16,7 @@ $(document).on('turbolinks:before-cache', function(){
 });
 
 $(document).on('turbolinks:load', function() {
-  defaultDatatable = $('.default-datatable').dataTable({
+  defaultDatatable = $('.nn-default-datatable').dataTable({
     aaSorting: [[ 0, 'asc' ]],
     bSort: true,
     bDestroy: true,
