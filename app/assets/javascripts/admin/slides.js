@@ -130,11 +130,13 @@ $(document).on('turbolinks:load page:restore', function(){
       if (jcrop_api !== null){
         jcrop_api.destroy()
       }
+      $('.image-preview-tag').css('object-fit', '');
       $('.image-preview-tag').css('height', '');
       $('.image-preview-tag').css('width', '');
       $('.image-preview-tag').attr('src', img.src);
       var original_width = document.getElementById("cropbox").offsetWidth;
-      $('.image-preview-tag').css('height', 'auto');
+      $('.image-preview-tag').css('object-fit', 'cover');
+      $('.image-preview-tag').css('height', '100%');
       $('.image-preview-tag').css('width', '100%');
       var height = document.getElementById("cropbox").offsetHeight;
       var width = document.getElementById("cropbox").offsetWidth;
