@@ -7,18 +7,18 @@ $(document).on('turbolinks:before-cache', function(){
 });
 
 $(document).on('turbolinks:load', function() {
-  $('.date-filter').on('change', function(){
+  $('.nn-date-filter').on('change', function(){
     adminUsersDatatable.draw();
   });
 
 
-  adminUsersDatatable = $('.admin-users-datatable').DataTable({
+  adminUsersDatatable = $('.nn-admin-users-datatable').DataTable({
     sPaginationType: 'full_numbers',
     bSort: true,
     Processing: true,
     bServerSide: true,
     bDestroy: true,
-    sAjaxSource: $('.admin-users-datatable').data('source'),
+    sAjaxSource: $('.nn-admin-users-datatable').data('source'),
     fnServerData: function (sSource, aoData, fnCallback){
        start_date = $('#f_start_date').val()
        if(start_date != null){
