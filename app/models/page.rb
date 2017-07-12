@@ -4,11 +4,11 @@ class Page < ApplicationRecord
   validates :url, :title, presence: true
   validates :url, :title, uniqueness: true
 
-  before_save :add_url, unless: :url?
+  before_save :parse_url
 
   before_destroy :check_destroyable
 
-  def add_url
+  def parse_url
     invalids = ['?', ';', '&', '.', '=', ':', '"', "'", '#', '[', ']', '/', '$',
                 '+', '@', ')', '(', '*', '!', '¡']
     self.url = title.strip.tr(' áéíóúÁÉÍÓÚñÑ', '-aeiouAEIOUnN')
