@@ -5,17 +5,17 @@ module Admin
       Setting.load_settings
 
       @setting = Hash.new
-      Setting.integer_accepted_values.each do |conf|
-        @setting[conf] = Setting.value(conf)
+      Setting.integer_accepted_values.each do |setting|
+        @setting[setting] = Setting.value(setting)
       end
-      Setting.double_accepted_values.each do |conf|
-        @setting[conf] = Setting.value(conf)
+      Setting.double_accepted_values.each do |setting|
+        @setting[setting] = Setting.value(setting)
       end
-      Setting.text_accepted_values.each do |conf|
-        @setting[conf] = Setting.value(conf)
+      Setting.text_accepted_values.each do |setting|
+        @setting[setting] = Setting.value(setting)
       end
-      Setting.date_accepted_values.each do |conf|
-        @setting[conf] = Setting.value(conf)
+      Setting.date_accepted_values.each do |setting|
+        @setting[setting] = Setting.value(setting)
       end
       respond_to do |format|
         format.html
@@ -26,75 +26,75 @@ module Admin
         Setting.load_settings
 
         @setting = Hash.new
-        Setting.integer_accepted_values.each do |conf|
-          @setting[conf] = Setting.value(conf)
+        Setting.integer_accepted_values.each do |setting|
+          @setting[setting] = Setting.value(setting)
         end
-        Setting.double_accepted_values.each do |conf|
-          @setting[conf] = Setting.value(conf)
+        Setting.double_accepted_values.each do |setting|
+          @setting[setting] = Setting.value(setting)
         end
-        Setting.text_accepted_values.each do |conf|
-          @setting[conf] = Setting.value(conf)
+        Setting.text_accepted_values.each do |setting|
+          @setting[setting] = Setting.value(setting)
         end
-        Setting.date_accepted_values.each do |conf|
-          @setting[conf] = Setting.value(conf)
+        Setting.date_accepted_values.each do |setting|
+          @setting[setting] = Setting.value(setting)
         end
       end
 
       def update
-        Setting.integer_accepted_values.each do |conf|
-          if new_value = params["#{conf}"]
+        Setting.integer_accepted_values.each do |setting|
+          if new_value = params["#{setting}"]
             new_value = new_value.to_i
-            if set = Setting.find_by_code(conf)
+            if set = Setting.find_by_code(setting)
               if set.number_value != new_value
                 set.number_value = new_value
                 set.save
               end
             else
-              Setting.create(code: conf, number_value: new_value)
+              Setting.create(code: setting, number_value: new_value)
             end
           end
         end
-        Setting.double_accepted_values.each do |conf|
-          if new_value = params["#{conf}"]
+        Setting.double_accepted_values.each do |setting|
+          if new_value = params["#{setting}"]
             new_value = new_value.sub(",",".").to_d
-            if set = Setting.find_by_code(conf)
+            if set = Setting.find_by_code(setting)
               if set.number_value != new_value
                 set.number_value = new_value
                 set.save
               end
             else
-              Setting.create(code: conf, number_value: new_value)
+              Setting.create(code: setting, number_value: new_value)
             end
           end
         end
-        Setting.text_accepted_values.each do |conf|
-          if new_value = params["#{conf}"]
-            if set = Setting.find_by_code(conf)
+        Setting.text_accepted_values.each do |setting|
+          if new_value = params["#{setting}"]
+            if set = Setting.find_by_code(setting)
               if set.text_value != new_value
                 set.text_value = new_value
                 set.save
               end
             else
-              Setting.create(code: conf, text_value: new_value)
+              Setting.create(code: setting, text_value: new_value)
             end
           end
         end
-        Setting.date_accepted_values.each do |conf|
-          if new_value = params["#{conf}"]
-            h = params["#{conf}"]
+        Setting.date_accepted_values.each do |setting|
+          if new_value = params["#{setting}"]
+            h = params["#{setting}"]
             year = h[h.keys.find {|k| k.include? "1i"}].to_i
             month = h[h.keys.find {|k| k.include? "2i"}].to_i
             day = h[h.keys.find {|k| k.include? "3i"}].to_i
             hour = h[h.keys.find {|k| k.include? "4i"}].to_i
             min = h[h.keys.find {|k| k.include? "5i"}].to_i
             new_value = DateTime.now.change({ hour: hour, min: min })
-            if set = Setting.find_by_code(conf)
+            if set = Setting.find_by_code(setting)
               if set.date_value != new_value
                 set.date_value = new_value
                 set.save
               end
             else
-              Setting.create(code: conf, date_value: new_value)
+              Setting.create(code: setting, date_value: new_value)
             end
           end
         end

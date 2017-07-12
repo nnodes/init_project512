@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   private
 
   def invalid_controller?
-    params[:controller] == 'admin/attendances' ||
     params[:controller] == 'home' ||
     devise_controller?
   end
