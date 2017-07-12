@@ -1,9 +1,11 @@
 //= require jquery.Jcrop
 //= require init_youtube
 //= require admin/init_crop
+//= require admin/upload_button
 
 
 $(document).on('turbolinks:load', function(){
+
   if($('div[id*="youtube-player-"').length > 0){
     loadYoutube();
   }

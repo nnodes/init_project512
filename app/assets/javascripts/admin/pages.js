@@ -1,5 +1,4 @@
 //= require admin/init_ckeditor
-//= require admin/upload_button
 
 $(document).on("turbolinks:load", function() {
   $('#page_title').on('keyup', function(){
