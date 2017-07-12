@@ -47,9 +47,9 @@ module Admin
     end
 
     def destroy_image
-      if @page.present?
-        @page.image.destroy
-        @page.save
+      if @slide.present?
+        @slide.image.destroy
+        @slide.save
       end
     end
 
