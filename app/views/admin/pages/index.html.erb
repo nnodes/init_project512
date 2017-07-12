@@ -13,7 +13,7 @@
       <th>URL</th>
       <th>Publicada</th>
       <th>Autor</th>
-      <th style="width: 180px;"></th>
+      <th style="width: 140px;"></th>
     </tr>
   </thead>
   <tbody>
@@ -23,7 +23,7 @@
         <td><%= page.url %></td>
         <td><%= page.active ? 'Si' : 'No' %></td>
         <td><%= page.author.email %></td>
-        <td><%= link_to 'Ver', admin_page_path(page), class: "btn btn-primary btn-xs m-lr-5" %>
+        <td><%= link_to 'Ver', admin_page_path(page), class: "btn btn-success btn-xs m-lr-5" %>
             <%= link_to 'Editar', edit_admin_page_path(page),  class: "btn btn-warning btn-xs m-lr-5" %>
             <%= link_to 'Eliminar', admin_page_path(page), class: "btn btn-danger btn-xs m-lr-5", method: :delete, data: { confirm: '¿Estás seguro de eliminar esta página?' } if page.destroyable %></td>
       </tr>

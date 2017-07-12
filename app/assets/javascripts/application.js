@@ -46,4 +46,15 @@ $(document).on("turbolinks:load", function() {
     format: 'dd/mm/yyyy',
     language: 'es'
   });
+
+  $(window).scroll(function(){
+    if($(window).scrollTop() <= 200 ){
+      $('.home-nav').removeClass('affix');
+      $('.home-nav').addClass('affix-top');
+    }
+    else{
+      $('.home-nav').removeClass('affix-top');
+      $('.home-nav').addClass('affix');
+    }
+  });
 });
