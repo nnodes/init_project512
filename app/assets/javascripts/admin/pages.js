@@ -6,7 +6,7 @@ $(document).on("turbolinks:load", function() {
     var invalids = {' ': '-', 'á': 'a','é': 'e','í': 'i','ó': 'o','ú': 'u',
                     'Á': 'A','É': 'E','Í': 'I','Ó': 'O','Ú': 'U','ñ': 'n',
                     'Ñ': 'N', 'Ç': 'C', 'ç': 'c' }
-    var url = $(this).val().replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>¡\{\}\[\]\\\/]/gi, '');
+    var url = $(this).val().replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>¿¡\{\}\[\]\\\/]/gi, '');
     var re = new RegExp(Object.keys(invalids).join("|"),"gi");
     url = url.replace(re, function(matched){
       return invalids[matched.toLowerCase()];
