@@ -1,10 +1,18 @@
+var adminUsersDatatable;
+
+$(document).on('turbolinks:before-cache', function(){
+  if (adminUsersDatatable.length == 1) {
+    adminUsersDatatable.fnDestroy();
+  }
+});
+
 $(document).on('turbolinks:load', function() {
   $('.date-filter').on('change', function(){
     adminUsersDatatable.draw();
   });
 
 
-  var adminUsersDatatable = $('.admin-users-datatable').DataTable({
+  adminUsersDatatable = $('.admin-users-datatable').DataTable({
     sPaginationType: 'full_numbers',
     bSort: true,
     Processing: true,

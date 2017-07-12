@@ -7,40 +7,49 @@
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.es.js
 //= require turbolinks
 
-$(document).on("turbolinks:load", function() {
-  $('.default-datatable').dataTable({
-    "aaSorting": [[ 0, "asc" ]],
-    "bSort": true,
-    'retrieve': true,
-    "oLanguage": {
-      "sProcessing":     "Procesando...",
-      "sLengthMenu":     "Registros por página : _MENU_",
-      "sZeroRecords":    "No se encontraron resultados",
-      "sEmptyTable":     "Ningún dato disponible en esta tabla",
-      "sInfo":           "Registros del _START_ al _END_ de un total de _TOTAL_ registros",
-      "sInfoEmpty":      "Registros del 0 al 0 de un total de 0 registros",
-      "sInfoFiltered":   "",
-      "sInfoPostFix":    "",
-      "sSearch":         "Buscador : ",
-      "sUrl":            "",
-      "sInfoThousands":  ",",
-      "sLoadingRecords": "Cargando...",
-      "oAria": {
-        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+var defaultDatatable;
+
+$(document).on('turbolinks:before-cache', function(){
+  if (defaultDatatable.length == 1) {
+    defaultDatatable.fnDestroy();
+  }
+});
+
+$(document).on('turbolinks:load', function() {
+  defaultDatatable = $('.default-datatable').dataTable({
+    aaSorting: [[ 0, 'asc' ]],
+    bSort: true,
+    bDestroy: true,
+    retrieve: true,
+    oLanguage: {
+      sProcessing:     'Procesando...',
+      sLengthMenu:     'Registros por página : _MENU_',
+      sZeroRecords:    'No se encontraron resultados',
+      sEmptyTable:     'Ningún dato disponible en esta tabla',
+      sInfo:           'Registros del _START_ al _END_ de un total de _TOTAL_ registros',
+      sInfoEmpty:      'Registros del 0 al 0 de un total de 0 registros',
+      sInfoFiltered:   '',
+      sInfoPostFix:    '',
+      sSearch:         'Buscador : ',
+      sUrl:            '',
+      sInfoThousands:  ',',
+      sLoadingRecords: 'Cargando...',
+      oAria: {
+        sSortAscending:  'Activar para ordenar la columna de manera ascendente',
+        sSortDescending: 'Activar para ordenar la columna de manera descendente'
       },
-      "oPaginate": {
-        "sFirst": "Primero",
-        "sLast": "Último",
-        "sNext": "Siguiente",
-        "sPrevious": "Anterior"
+      oPaginate: {
+        sFirst: 'Primero',
+        sLast: 'Último',
+        sNext: 'Siguiente',
+        sPrevious: 'Anterior'
       }
     },
-    "iDisplayLength": 25,
-    "sPaginationType": "full_numbers"
+    iDisplayLength: 25,
+    sPaginationType: 'full_numbers'
   });
 
-  $(".alert" ).delay(2000).fadeOut(3000);
+  $('.alert' ).delay(2000).fadeOut(3000);
 
   $('.datepicker').datepicker({
     format: 'dd/mm/yyyy',
