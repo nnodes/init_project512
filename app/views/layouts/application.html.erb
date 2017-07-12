@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
-  <body>
+  <body class="<%= 'affix-padding' if affix?(params) %>">
     <%= render "layouts/menu" %>
     <%= render "layouts/mobile_sidebar"%>
     <div class="container-fluid">

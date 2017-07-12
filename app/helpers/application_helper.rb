@@ -27,4 +27,8 @@ module ApplicationHelper
     end
   flash_messages.join("\n").html_safe
   end
+
+  def affix?(params)
+    params[:controller] == 'home' && params[:action] == 'landing'
+  end
 end

@@ -1,7 +1,7 @@
 <%= simple_form_for([:admin, @slide], defaults: { label: false, wrapper: false }, input_html: { class: 'form-control '}) do |f| %>
   <%= f.error_notification %>
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <div class="banner">
+  <div class="banner m-b-20">
     <div class="content" id="image-preview">
       <% if f.object.image.exists? && f.object.id %>
         <img src="<%= f.object.image.url(:cropped) %>" class="image-preview-tag" id=cropbox style="object-fit:cover;width:100%;height:100%",
