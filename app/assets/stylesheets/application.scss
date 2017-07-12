@@ -280,10 +280,10 @@ p {
           }
           &.active {
             a {
-              background: $brand-success;
+              background: darken($brand-primary, 5%);
               color: white;
               &:hover, &:focus {
-                background: lighten($brand-success, 5%);
+                background: darken($brand-primary, 8%);
                 color: white;
               }
             }
