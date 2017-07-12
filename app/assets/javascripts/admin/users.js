@@ -1,8 +1,8 @@
 var adminUsersDatatable;
 
 $(document).on('turbolinks:before-cache', function(){
-  if (adminUsersDatatable.length == 1) {
-    adminUsersDatatable.fnDestroy();
+  if (adminUsersDatatable) {
+    adminUsersDatatable.destroy();
   }
 });
 

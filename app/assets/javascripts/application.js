@@ -13,13 +13,13 @@
 var defaultDatatable;
 
 $(document).on('turbolinks:before-cache', function(){
-  if (defaultDatatable.length == 1) {
-    defaultDatatable.fnDestroy();
+  if (defaultDatatable) {
+    defaultDatatable.destroy();
   }
 });
 
 $(document).on('turbolinks:load', function() {
-  defaultDatatable = $('.nn-default-datatable').dataTable({
+  defaultDatatable = $('.nn-default-datatable').DataTable({
     aaSorting: [[ 0, 'asc' ]],
     bSort: true,
     bDestroy: true,
