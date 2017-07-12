@@ -10,7 +10,18 @@ $(document).on("turbolinks:load", function() {
     url = url.replace(re, function(matched){
       return invalids[matched.toLowerCase()];
     });
-    var parse_url = encodeURIComponent(url);
-    $("#page_url").val(parse_url);
+    var parseUrl = encodeURIComponent(url);
+    $("#page_url").val(parseUrl);
+  });
+
+  $("form").validate({
+    rules: {
+      'page[title]': {
+        required: true,
+      },
+      'page[url]': {
+        required: true,
+      }
+    }
   });
 });
