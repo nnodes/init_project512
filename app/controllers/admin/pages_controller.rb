@@ -40,7 +40,7 @@ module Admin
 
     def destroy
       respond_to do |format|
-        if @page.home_page
+        if @page.destroyable
           @page.destroy
           format.html { redirect_to admin_pages_url, notice: 'Página eliminada exitosamente' }
           format.json { head :no_content }

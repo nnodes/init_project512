@@ -6,9 +6,15 @@ class Page < ApplicationRecord
 
   before_save :add_url, unless: :url?
 
+  before_destroy :check_destroyable
+
   def add_url
     invalids = ['?', ';', '&', '.', '=', ':', '"', "'", '#']
     self.url = title.strip.tr(' áéíóúÁÉÍÓÚ', '-aeiouAEIOU')
                     .gsub(Regexp.union(invalids), '')
+  end
+
+  def check_destroyable
+    destroyable
   end
 end
