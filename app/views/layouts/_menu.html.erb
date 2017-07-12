@@ -15,8 +15,8 @@
       <% if user_signed_in? %>
       <ul class="nav navbar-nav">
         <li class="<%= 'active' if params[:controller] == 'home' %>"><%= link_to "Home", authenticated_root_path %></li>
-        <% if current_user.admin? %>
-          <li class="<%= 'active' if params[:controller] == 'admin' %>"><%= link_to "Admin", admin_users_path %></li>
+        <% if can? :manage, User %>
+          <li><%= link_to "Admin", admin_users_path %></li>
         <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
