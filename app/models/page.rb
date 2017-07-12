@@ -1,7 +1,7 @@
 class Page < ApplicationRecord
   belongs_to :author, class_name: 'User', foreign_key: 'user_id'
 
-  validates :title, presence: true
+  validates :url, :title, presence: true
   validates :url, :title, uniqueness: true
 
   before_save :add_url, unless: :url?
@@ -9,8 +9,9 @@ class Page < ApplicationRecord
   before_destroy :check_destroyable
 
   def add_url
-    invalids = ['?', ';', '&', '.', '=', ':', '"', "'", '#']
-    self.url = title.strip.tr(' áéíóúÁÉÍÓÚ', '-aeiouAEIOU')
+    invalids = ['?', ';', '&', '.', '=', ':', '"', "'", '#', '[', ']', '/', '$',
+                '+', '@', ')', '(', '*', '!', '¡']
+    self.url = title.strip.tr(' áéíóúÁÉÍÓÚñÑ', '-aeiouAEIOUnN')
                     .gsub(Regexp.union(invalids), '')
   end
 
