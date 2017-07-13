@@ -5,11 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  enum role: [:basic, :admin]
-
-  def admin?
-    role == 'admin'
-  end
+  enum role: { basic: 0, admin: 1 }
 
   def active_for_authentication?
     super && self.active
