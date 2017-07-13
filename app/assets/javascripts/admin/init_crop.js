@@ -28,7 +28,7 @@ function imageUpload(event) {
     var original_width = document.getElementById("nn-cropbox").offsetWidth;
     $('.nn-image-preview').css('object-fit', 'cover');
     $('.nn-image-preview').css('height', '100%');
-    $('.nn-image-preview').css('width', 'auto');
+    $('.nn-image-preview').css('width', '100%');
 
     var height = document.getElementById("nn-cropbox").offsetHeight;
     var width = document.getElementById("nn-cropbox").offsetWidth;
