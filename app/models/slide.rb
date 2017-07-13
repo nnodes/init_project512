@@ -8,7 +8,7 @@ class Slide < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   validates_presence_of :image, unless: :video_url?
   validates_presence_of :video_url, unless: :image?, message: 'Debe ingresar una imagen o video'
-  validates :positon, presence: true
+  validates :position, presence: true
   before_save :save_youtube_id, if: :video_url?
 
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
