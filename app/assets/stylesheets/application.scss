@@ -162,6 +162,14 @@ p {
 }
 .form-control-feedback {
   right: 15px;
+  &.link {
+    right: 105px;
+  }
+}
+.form-control-feedback-msg {
+  label {
+    font-weight: 400;
+  }
 }
 .row-eq-height {
   display: -webkit-box;

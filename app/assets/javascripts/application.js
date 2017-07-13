@@ -78,7 +78,7 @@ $(document).on('turbolinks:load', function() {
       }
     },
     errorPlacement: function(error, element) {
-      error.appendTo($(element).closest('.form-group').find('.nn-msg'));
+      error.appendTo($(element).closest('.form-group').find('.nn-msg').addClass('text-danger'));
     }
   });
 

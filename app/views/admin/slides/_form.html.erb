@@ -24,9 +24,9 @@
           </span>
         </span>
         <input type="text" class="form-control" readonly aria-label="<%= :image %>", id="nn-image-name" value="<%= f.object.image_file_name if f.object.image.exists?%>">
-        <span class="glyphicon" aria-hidden="true"></span>
-        <div class="nn-msg"></div>
       </div>
+      <span class="glyphicon" aria-hidden="true"></span>
+      <span class="nn-msg form-control-feedback-msg"></span>
     </div>
   </div>
   <div id="image-options">
@@ -42,12 +42,16 @@
     <%= f.label :title, 'Título', class: "col-sm-4 control-label" %>
     <div class="col-sm-8">
       <%= f.input :title, input_html: { class: 'form-control '} %>
+      <span class="glyphicon" aria-hidden="true"></span>
+      <span class="nn-msg form-control-feedback-msg"></span>
     </div>
   </div>
   <div class="form-group row">
     <%= f.label :caption, 'Texto', class: "col-sm-4 control-label" %>
     <div class="col-sm-8">
       <%= f.input :caption, input_html: { class: 'form-control '} %>
+      <span class="glyphicon" aria-hidden="true"></span>
+      <span class="nn-msg form-control-feedback-msg"></span>
     </div>
   </div>
   <div class="form-group row">
@@ -55,7 +59,7 @@
     <div class="col-sm-8">
       <%= f.input :position, input_html: { class: 'form-control '} %>
       <span class="glyphicon" aria-hidden="true"></span>
-      <div class="nn-msg"></div>
+      <span class="nn-msg form-control-feedback-msg"></span>
     </div>
   </div>
   <div class="form-group row">
@@ -63,7 +67,7 @@
     <div class="col-sm-8">
       <%= f.input :video_url, input_html: { class: 'form-control fill-one', type: :string } %>
       <span class="glyphicon" aria-hidden="true"></span>
-      <div class="nn-msg"></div>
+      <span class="nn-msg form-control-feedback-msg"></span>
     </div>
   </div>
   <div class="form-group row">
