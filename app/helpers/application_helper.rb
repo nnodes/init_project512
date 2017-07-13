@@ -31,4 +31,9 @@ module ApplicationHelper
   def affix?(params)
     params[:controller] == 'home' && params[:action] == 'landing'
   end
+
+  def number_to_currency(number, options = {})
+    options[:locale] ||= I18n.locale
+    super(number, options)
+  end
 end

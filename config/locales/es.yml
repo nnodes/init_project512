@@ -14,6 +14,13 @@ es:
     - :day
     - :month
     - :year
+  number:
+    currency:
+      format:
+        format: "%u%n"
+        unit: "$"
+        delimiter: "."
+        precision: 0
   helpers:
     links:
       edit: "Editar"
