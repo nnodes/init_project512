@@ -83,7 +83,8 @@ $(document).on('turbolinks:load', function() {
   });
 
   jQuery.extend(jQuery.validator.messages, {
-    require_from_group: "Debes ingresar al menos {0} de estos campos."
+    require_from_group: "Debes ingresar al menos {0} de estos campos.",
+    accept: 'La extensión del archivo ingresada no es válida'
   });
 
   $(window).scroll(function(){

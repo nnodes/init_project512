@@ -29,7 +29,6 @@ function imageUpload(event) {
     $('.nn-image-preview').css('object-fit', 'cover');
     $('.nn-image-preview').css('height', '100%');
     $('.nn-image-preview').css('width', '100%');
-
     var height = document.getElementById("nn-cropbox").offsetHeight;
     var width = document.getElementById("nn-cropbox").offsetWidth;
     ratio = original_width/width;

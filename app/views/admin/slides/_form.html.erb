@@ -23,7 +23,7 @@
             Examinar&hellip; <%= f.file_field :image, 'accept': 'image/x-png, image/jpeg', class: 'fill-one' %>
           </span>
         </span>
-        <input type="text" class="form-control" readonly aria-label="<%= :image %>">
+        <input type="text" class="form-control" readonly aria-label="<%= :image %>", id="nn-image-name" value="<%= f.object.image_file_name if f.object.image.exists?%>">
         <span class="glyphicon" aria-hidden="true"></span>
         <div class="nn-msg"></div>
       </div>
@@ -34,7 +34,7 @@
       <div class="m-b-10" data-toggle="buttons" style="width:100%;">
         <button type="button" class="btn btn-success crop-btn" id="slide-crop" style="width:49%;">Editar recorte</button>
         <%= link_to 'Borrar Imagen', image_admin_slides_path(f.object), data: { confirm: '¿Estás seguro que deseas eliminar la imagen?' },
-            remote: true, class: 'btn btn-primary', style: "width:49%;"%>
+            remote: true, class: 'btn btn-primary', style: "width:49%;", id: 'nn-del-image' %>
       </div>
     <% end %>
   </div>
