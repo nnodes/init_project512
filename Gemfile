@@ -48,6 +48,9 @@ gem 'ckeditor', '~> 4.2.4'
 gem 'paperclip', '~> 5.1.0'
 gem 'jcrop-rails-v2', '~> 0.9.12.3'
 gem 'jquery-validation-rails', '~> 1.16.0'
+gem 'rubyzip', '>= 1.2.1'
+gem 'axlsx', git: 'https://github.com/randym/axlsx.git'
+gem 'axlsx_rails'
 
 
 

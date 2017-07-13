@@ -6,6 +6,12 @@ module Admin
       respond_to do |format|
         format.html
         format.json { render json: UsersDatatable.new(view_context, {action: params[:action]}) }
+        format.xlsx { 
+          @users = User.all
+          filename = 'Usuarios'
+          response.headers['Content-Disposition'] = "attachment; filename='#{filename}.xlsx'"
+          render
+        }
       end
     end
 
