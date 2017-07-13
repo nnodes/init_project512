@@ -15,6 +15,7 @@
 <table class="table table-striped nn-default-datatable m-b-20">
   <thead>
     <tr>
+      <th>Orden</th>
       <th>Título</th>
       <th>Activo</th>
       <th>Fecha de creación</th>
@@ -24,6 +25,7 @@
   <tbody>
     <% @slides.each do |slide| %>
       <tr>
+        <td><%= slide.position %></td>
         <td><%= slide.title %></td>
         <td><%= slide.active ? 'Si' : 'No' %></td>
         <td><%= slide.created_at %></td>

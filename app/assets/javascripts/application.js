@@ -7,6 +7,7 @@
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.es.js
 //= require turbolinks
 //= require jquery.validate
+//= require jquery.validate.additional-methods
 //= require jquery.validate.localization/messages_es
 
 
@@ -65,8 +66,7 @@ $(document).on('turbolinks:load', function() {
         this.findByName(element.name).addClass(errorClass).removeClass(validClass);
       } else {
         $(element).closest('.form-group').removeClass('has-success has-feedback').addClass('has-error has-feedback');
-        $(element).closest('.form-group').find('span.glyphicon').remove();
-        $(element).closest('.form-group').append('<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>');
+        $(element).closest('.form-group').find('span.glyphicon').removeClass('glyphicon-ok form-control-feedback').addClass('glyphicon-remove form-control-feedback');
       }
     },
     unhighlight: function (element, errorClass, validClass) {
@@ -74,10 +74,16 @@ $(document).on('turbolinks:load', function() {
         this.findByName(element.name).removeClass(errorClass).addClass(validClass);
       } else {
         $(element).closest('.form-group').removeClass('has-error has-feedback').addClass('has-success has-feedback');
-        $(element).closest('.form-group').find('span.glyphicon').remove();
-        $(element).closest('.form-group').append('<span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>');
+        $(element).closest('.form-group').find('span.glyphicon').removeClass('glyphicon-remove form-control-feedback').addClass('glyphicon-ok form-control-feedback');
       }
+    },
+    errorPlacement: function(error, element) {
+      error.appendTo($(element).closest('.form-group').find('.nn-msg'));
     }
+  });
+
+  jQuery.extend(jQuery.validator.messages, {
+    require_from_group: "Debes ingresar al menos {0} de estos campos."
   });
 
   $(window).scroll(function(){

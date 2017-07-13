@@ -3,7 +3,7 @@ module Admin
     before_action :set_slide, only: [:show, :edit, :update, :destroy, :show, :destroy_image]
 
     def index
-      @slides = Slide.all
+      @slides = Slide.all.order(position: :desc)
     end
 
     def edit
@@ -62,7 +62,7 @@ module Admin
     def slide_params
       params.require(:slide)
             .permit(:title, :caption, :video_url, :active, :crop_x, :crop_y,
-                    :crop_w, :crop_h, :image)
+                    :crop_w, :crop_h, :image, :position)
     end
   end
 end

@@ -15,18 +15,20 @@ $(document).on('turbolinks:load page:restore', function(){
   $('#slide_image').on('change', function(event) {
     imageUpload(event);
   });
-
+  $('#slide-crop').on('click', function(event){
+    editImageCrop(event)
+  });
   $("form").validate({
     rules: {
       'slide[image]': {
-          required: function(element) {
-              return $("#slide_video_url").is(':empty');
-          }
+          require_from_group: [1, ".fill-one"]
       },
       'slide[video_url]': {
-          required: function(element) {
-              return $("#slide_image").is(':empty');
-          }
+          url: true,
+          require_from_group: [1, ".fill-one"]
+      },
+      'slide[position]': {
+        required: true
       }
     }
   });

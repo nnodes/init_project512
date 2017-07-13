@@ -28,7 +28,7 @@ function imageUpload(event) {
     var original_width = document.getElementById("nn-cropbox").offsetWidth;
     $('.nn-image-preview').css('object-fit', 'cover');
     $('.nn-image-preview').css('height', '100%');
-    $('.nn-image-preview').css('width', '100%');
+    $('.nn-image-preview').css('width', 'auto');
 
     var height = document.getElementById("nn-cropbox").offsetHeight;
     var width = document.getElementById("nn-cropbox").offsetWidth;
@@ -46,25 +46,23 @@ function imageUpload(event) {
   reader.readAsDataURL(image);
 }
 
-$(document).on('turbolinks:load page:restore', function(){
-  $('#slide-crop').on('click', function(event){
-    var full = $('#nn-cropbox').data('full')
-    var crop_height = document.getElementById("nn-cropbox").offsetHeight;
-    var crop_width = document.getElementById("nn-cropbox").offsetWidth;
-    var original_width = parseInt(($('#nn-cropbox').data('width')).split('x')[0])
-    var original_height = parseInt(($('#nn-cropbox').data('width')).split('x')[1])
-    $('.nn-image-preview').attr('src', full);
-    var height = document.getElementById("nn-cropbox").offsetHeight;
-    var width = document.getElementById("nn-cropbox").offsetWidth;
-    ratio = original_width /  width;
-    crop_ratio = crop_width/crop_height;
-    $('#nn-cropbox').Jcrop({
-      onChange: updateCrop,
-      onSelect: updateCrop,
-      setSelect: [0, 0, width, height],
-      aspectRatio: crop_ratio
-    }, function(){
-      jcrop_api = this;
-    });
+function editImageCrop(event) {
+  var full = $('#nn-cropbox').data('full')
+  var crop_height = document.getElementById("nn-cropbox").offsetHeight;
+  var crop_width = document.getElementById("nn-cropbox").offsetWidth;
+  var original_width = parseInt(($('#nn-cropbox').data('width')).split('x')[0])
+  var original_height = parseInt(($('#nn-cropbox').data('width')).split('x')[1])
+  $('.nn-image-preview').attr('src', full);
+  var height = document.getElementById("nn-cropbox").offsetHeight;
+  var width = document.getElementById("nn-cropbox").offsetWidth;
+  ratio = original_width /  width;
+  crop_ratio = crop_width/crop_height;
+  $('#nn-cropbox').Jcrop({
+    onChange: updateCrop,
+    onSelect: updateCrop,
+    setSelect: [0, 0, width, height],
+    aspectRatio: crop_ratio
+  }, function(){
+    jcrop_api = this;
   });
-});
+}
