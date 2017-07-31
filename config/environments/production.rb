@@ -91,7 +91,9 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'https://nnodes.com' }
   config.action_mailer.default_options     = { from: 'UCP <no-reply@nnodes.com>',
                                                   "X-SMTPAPI": '{"category": ["NNODES INIT"]}' }
-
+  
+  config.logger = Logger.new("log/production.log", 10, 20*1024*1024)
+  
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
