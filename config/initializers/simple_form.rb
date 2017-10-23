@@ -12,6 +12,8 @@ SimpleForm.setup do |config|
   config.wrappers :vertical_form, tag: 'div', class: 'form-group', error_class: 'has-error', success_class: 'has-success' do |b|
     b.use :html5
     b.use :placeholder
+    b.optional :icon
+    b.optional :glyphicon
     b.optional :maxlength
     b.optional :pattern
     b.optional :min_max
@@ -30,12 +32,7 @@ SimpleForm.setup do |config|
     b.optional :readonly
     b.use :label, class: 'control-label'
 
-    b.wrapper tag: 'div', class: 'input-group' do |ba|
-      b.wrapper tag: 'span', class: 'input-group-btn' do |ip|
-        ip.use :input
-      end
-      ba.use :input, class: 'form-control'
-    end
+    b.use :input
     b.use :error, wrap_with: { tag: 'span', class: 'help-block' }
     b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
   end
@@ -90,6 +87,8 @@ SimpleForm.setup do |config|
   config.wrappers :horizontal_form, tag: 'div', class: 'form-group row', error_class: 'has-error', success_class: 'has-success' do |b|
     b.use :html5
     b.use :placeholder
+    b.optional :icon
+    b.optional :glyphicon
     b.optional :maxlength
     b.optional :pattern
     b.optional :min_max
@@ -147,6 +146,8 @@ SimpleForm.setup do |config|
   config.wrappers :inline_form, tag: 'div', class: 'form-group', error_class: 'has-error', success_class: 'has-success' do |b|
     b.use :html5
     b.use :placeholder
+    b.optional :icon
+    b.optional :glyphicon
     b.optional :maxlength
     b.optional :pattern
     b.optional :min_max
@@ -167,7 +168,7 @@ SimpleForm.setup do |config|
     check_boxes: :vertical_radio_and_checkboxes,
     radio_buttons: :vertical_radio_and_checkboxes,
     file: :vertical_file_input,
-    boolean: :vertical_boolean,
+    boolean: :vertical_boolean
   }
 
   # Define the way to render check boxes / radio buttons with labels.
@@ -191,4 +192,23 @@ SimpleForm.setup do |config|
   # To stop SimpleForm from generating the novalidate option, enabling the HTML5 validations,
   # change this configuration to true.
   config.browser_validations = false
+end
+
+# Override file input
+module SimpleForm
+  module Inputs
+    class FileInput < Base
+      def input(wrapper_options = nil)
+        merged_input_options = merge_wrapper_options(input_html_options, wrapper_options)
+        template.content_tag(:div, class: 'input-group') do
+          template.content_tag(:span, class: 'input-group-btn') do
+            template.content_tag(:span, class: 'btn btn-primary btn-file btn-add') do
+              raw('Examinar' + @builder.file_field(attribute_name, merged_input_options))
+            end
+          end
+          # template.tag(:input, id: 'nn-image-name', class: 'form-control', type: 'text')
+        end
+      end
+    end
+  end
 end
