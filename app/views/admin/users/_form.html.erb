@@ -1,8 +1,8 @@
-<%= simple_form_for([:admin, @user], wrapper: false, label: false) do |f| %>
-    <%= f.input :email, :wrapper => :input_bs %>
-    <%= f.input :role, collection: User.roles.keys, include_blank: false, :wrapper => :input_bs  %>
-    <%= f.input :active, as: :radio_buttons, :wrapper => :input_checkbox_inline%>
-    <%= f.input :password, :wrapper => :input_bs %>
-    <%= f.input :password_confirmation, :wrapper => :input_bs %>
+<%= simple_form_for([:admin, @user]) do |f| %>
+    <%= f.input :email %>
+    <%= f.input :role, collection: User.roles.keys, include_blank: false  %>
+    <%= f.input :active, as: :radio_buttons, item_wrapper_class: 'radio-inline' %>
+    <%= f.input :password, wrapper: :prepend  %>
+    <%= f.input :password_confirmation %>
     <%= f.button :submit %>
 <% end %>
