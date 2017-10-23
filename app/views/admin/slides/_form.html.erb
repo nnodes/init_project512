@@ -2,9 +2,9 @@
   <%= f.error_notification %>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.input :image, 'accept': 'image/x-png, image/jpeg'%>
-  <%= f.input :title %>
-  <%= f.input :caption%>
-  <%= f.input :position%>
+  <%= f.input :title, icon: 'glyphicon glyphicon-remove' %>
+  <%= f.input :caption, glyphicon: 'remove' %>
+  <%= f.input :position %>
   <%= f.input :video_url, input_html: {type: :string } %>
   <%= f.input :active %>
   <%= f.button :submit, 'Guardar' %>
