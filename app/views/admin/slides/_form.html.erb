@@ -1,7 +1,7 @@
 <%= simple_form_for([:admin, @slide], 
                       wrapper: :horizontal_form,  
                       wrapper_mappings: {
-                            boolean: :horizontal_boolean
+                        boolean: :horizontal_boolean
                       }) do |f| %>
   <%= f.error_notification %>
   <%= f.hidden_field :user_id, value: current_user.id %>
