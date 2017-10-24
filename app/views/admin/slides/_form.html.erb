@@ -18,30 +18,23 @@
       <% end %>
     </div>
   </div>
-  <div class="form-group row">
-    <label class="col-sm-3 control-label">Imagen</label>
-    <div class="col-sm-9">
-      <div class="input-group">
-        <span class="input-group-btn">
-          <span class="btn btn-primary btn-file btn-add">
-            Examinar&hellip; <%= f.file_field :image, 'accept': 'image/x-png, image/jpeg', class: 'fill-one' %>
-          </span>
-        </span>
-        <input type="text" class="form-control" readonly aria-label="<%= :image %>", id="nn-image-name" value="<%= f.object.image_file_name if f.object.image.exists?%>">
+  <div id="image-options">
+    <% if f.object.image.exists? && f.object.id %>
+      <div class="m-b-10" data-toggle="buttons" style="width:100%;">
+        <button type="button" class="btn btn-success crop-btn" id="slide-crop" style="width:49%;">Editar recorte</button>
+        <%= link_to 'Borrar Imagen', image_admin_slides_path(f.object), data: { confirm: '¿Estás seguro que deseas eliminar la imagen?' },
+            remote: true, class: 'btn btn-primary', style: "width:49%;", id: 'nn-del-image' %>
       </div>
-      <span class="glyphicon" aria-hidden="true"></span>
-      <span class="nn-msg form-control-feedback-msg"></span>
-      <div id="image-options">
-        <% if f.object.image.exists? && f.object.id %>
-          <div class="m-b-10" data-toggle="buttons" style="width:100%;">
-            <button type="button" class="btn btn-success crop-btn" id="slide-crop" style="width:49%;">Editar recorte</button>
-            <%= link_to 'Borrar Imagen', image_admin_slides_path(f.object), data: { confirm: '¿Estás seguro que deseas eliminar la imagen?' },
-                remote: true, class: 'btn btn-primary', style: "width:49%;", id: 'nn-del-image' %>
-          </div>
-        <% end %>
-      </div>
-    </div>
+    <% end %>
   </div>
+  <%= f.input :image, :wrapper => :horizontal_addon do %>
+    <%= content_tag :span, class: 'input-group-btn' do %>
+      <span class="btn btn-primary btn-file btn-add">
+        Examinar&hellip; <%= f.file_field :image, 'accept': 'image/x-png, image/jpeg', class: 'fill-one' %>
+      </span>
+    <% end %>
+    <input type="text" class="form-control" readonly aria-label="<%= :image %>", id="nn-image-name" value="<%= f.object.image_file_name if f.object.image.exists?%>">
+  <% end %>
   <%= f.input :title %>
   <%= f.input :caption %>
   <%= f.input :position %>
