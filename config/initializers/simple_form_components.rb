@@ -7,7 +7,7 @@ module SimpleForm
 
       def glyphicon_class
         template.content_tag(
-          :i, '', class: 'glyphicon glyphicon-' + options[:glyphicon]
+          :span, '', class: 'glyphicon' + options[:glyphicon]
         )
       end
 
@@ -16,7 +16,9 @@ module SimpleForm
       end
 
       def icon_class
-        template.content_tag(:i, '', class: options[:icon])
+        template.content_tag(
+          :i, '', class: options[:icon]
+        )
       end
     end
   end

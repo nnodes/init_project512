@@ -70,6 +70,9 @@ p {
 }
 .control-label {
   display: block;
+  abbr {
+    display: none;
+  }
 }
 .form-group {
   &.radio_buttons {
@@ -117,8 +120,8 @@ p {
         &:checked {
           &:before {
             border-width: 1px;
-            border-color: $brand-success;
-            background: $brand-success;
+            border-color: $brand-primary;
+            background: $brand-primary;
           }
           &:after {
             opacity: 1;
@@ -178,8 +181,8 @@ p {
       &:checked {
         &:before {
           border-width: 1px;
-          border-color: $brand-success;
-          background: $brand-success;
+          border-color: $brand-primary;
+          background: $brand-primary;
         }
         &:after {
           opacity: 1;

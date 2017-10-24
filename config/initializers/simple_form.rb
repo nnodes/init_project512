@@ -25,6 +25,41 @@ SimpleForm.setup do |config|
     b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
   end
 
+  config.wrappers :vertical_addon, tag: 'div', class: "form-group", error_class: 'error' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.use :label, class: 'control-label'
+    b.wrapper tag: 'div', class: 'input-group' do |ba|
+      ba.use :input, class: 'form-control'
+    end
+    b.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
+    b.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
+  end
+
+  config.wrappers :vertical_prepend, tag: 'div', class: "form-group", error_class: 'error' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.use :label, class: 'control-label'
+    b.wrapper tag: 'div', class: 'input-group' do |ba|
+      ba.use :icon, wrap_with: {tag: 'span', class: 'input-group-addon'}
+      ba.use :input, class: 'form-control'
+    end
+    b.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
+    b.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
+  end
+
+  config.wrappers :vertical_append, tag: 'div', class: "form-group", error_class: 'error' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.use :label, class: 'control-label'
+    b.wrapper tag: 'div', class: 'input-group' do |ba|
+      ba.use :input, class: 'form-control'
+      ba.use :icon, wrap_with: {tag: 'span', class: 'input-group-addon'}
+    end
+    b.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
+    b.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
+  end
+
   config.wrappers :vertical_file_input, tag: 'div', class: 'form-group', error_class: 'has-error', success_class: 'has-success' do |b|
     b.use :html5
     b.use :placeholder
@@ -58,32 +93,6 @@ SimpleForm.setup do |config|
     b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
   end
 
-  config.wrappers :prepend, tag: 'div', class: "form-group", error_class: 'error' do |b|
-    b.use :html5
-    b.use :placeholder
-    b.use :label, class: 'control-label'
-    b.wrapper tag: 'div', class: 'input-group' do |input|
-      input.wrapper tag: 'div', class: 'input-prepend' do |prepend|
-        prepend.use :input
-      end
-      input.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
-      input.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
-    end
-  end
-
-  config.wrappers :append, tag: 'div', class: "form-group", error_class: 'error' do |b|
-    b.use :html5
-    b.use :placeholder
-    b.use :label, class: 'control-label'
-    b.wrapper tag: 'div', class: 'input-group' do |input|
-      input.wrapper tag: 'div', class: 'input-append' do |append|
-        append.use :input, class: 'form-control'
-      end
-      input.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
-      input.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
-    end
-  end
-
   config.wrappers :horizontal_form, tag: 'div', class: 'form-group row', error_class: 'has-error', success_class: 'has-success' do |b|
     b.use :html5
     b.use :placeholder
@@ -97,8 +106,50 @@ SimpleForm.setup do |config|
 
     b.wrapper tag: 'div', class: 'col-sm-9' do |ba|
       ba.use :input, class: 'form-control'
-      ba.use :error, wrap_with: { tag: 'span', class: 'help-block' }
+      ba.use :glyphicon
+      ba.use :error, wrap_with: { tag: 'span', class: 'help-block nn-msg form-control-feedback-msg' }
       ba.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
+    end
+  end
+
+  config.wrappers :horizontal_addon, tag: 'div', class: "form-group row", error_class: 'error' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.use :label, class: 'control-label col-sm-3'
+    b.wrapper tag: 'div', class: 'col-sm-9' do |ba|
+      ba.wrapper tag: 'div', class: 'input-group' do |bb|
+        bb.use :input, class: 'form-control'
+      end
+      ba.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
+      ba.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
+    end
+  end
+
+  config.wrappers :horizontal_prepend, tag: 'div', class: "form-group row", error_class: 'error' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.use :label, class: 'control-label col-sm-3'
+    b.wrapper tag: 'div', class: 'col-sm-9' do |ba|
+      ba.wrapper tag: 'div', class: 'input-group' do |bb|
+        bb.use :icon, wrap_with: {tag: 'span', class: 'input-group-addon'}
+        bb.use :input, class: 'form-control'
+      end
+      ba.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
+      ba.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
+    end
+  end
+
+  config.wrappers :horizontal_append, tag: 'div', class: "form-group row", error_class: 'error' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.use :label, class: 'control-label col-sm-3'
+    b.wrapper tag: 'div', class: 'col-sm-9' do |ba|
+      ba.wrapper tag: 'div', class: 'input-group' do |bb|
+        bb.use :input, class: 'form-control'
+        bb.use :icon, wrap_with: {tag: 'span', class: 'input-group-addon'}
+      end
+      ba.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
+      ba.use :error, wrap_with: { tag: 'span', class: 'help-inline' }
     end
   end
 
@@ -122,9 +173,8 @@ SimpleForm.setup do |config|
 
     b.wrapper tag: 'div', class: 'col-sm-offset-3 col-sm-9' do |wr|
       wr.wrapper tag: 'div', class: 'checkbox' do |ba|
-        ba.use :label_input, class: 'col-sm-9'
+        ba.use :label_input
       end
-
       wr.use :error, wrap_with: { tag: 'span', class: 'help-block' }
       wr.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
     end
@@ -195,20 +245,20 @@ SimpleForm.setup do |config|
 end
 
 # Override file input
-module SimpleForm
-  module Inputs
-    class FileInput < Base
-      def input(wrapper_options = nil)
-        merged_input_options = merge_wrapper_options(input_html_options, wrapper_options)
-        template.content_tag(:div, class: 'input-group') do
-          template.content_tag(:span, class: 'input-group-btn') do
-            template.content_tag(:span, class: 'btn btn-primary btn-file btn-add') do
-              raw('Examinar' + @builder.file_field(attribute_name, merged_input_options))
-            end
-          end
-          # template.tag(:input, id: 'nn-image-name', class: 'form-control', type: 'text')
-        end
-      end
-    end
-  end
-end
+# module SimpleForm
+#   module Inputs
+#     class FileInput < Base
+#       def input(wrapper_options = nil)
+#         merged_input_options = merge_wrapper_options(input_html_options, wrapper_options)
+#         template.content_tag(:div, class: 'input-group') do
+#           template.content_tag(:span, class: 'input-group-btn') do
+#             template.content_tag(:span, class: 'btn btn-primary btn-file btn-add') do
+#               raw('Examinar' + @builder.file_field(attribute_name, merged_input_options))
+#             end
+#           end
+#           # template.tag(:input, id: 'nn-image-name', class: 'form-control', type: 'text')
+#         end
+#       end
+#     end
+#   end
+# end

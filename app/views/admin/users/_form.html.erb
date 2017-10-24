@@ -2,7 +2,7 @@
     <%= f.input :email %>
     <%= f.input :role, collection: User.roles.keys, include_blank: false  %>
     <%= f.input :active, as: :radio_buttons, item_wrapper_class: 'radio-inline' %>
-    <%= f.input :password, wrapper: :prepend  %>
+    <%= f.input :password  %>
     <%= f.input :password_confirmation %>
     <%= f.button :submit %>
 <% end %>
