@@ -1,4 +1,8 @@
-<%= simple_form_for([:admin, @slide], defaults: { label: false, wrapper: false }, input_html: { class: 'form-control '}) do |f| %>
+<%= simple_form_for([:admin, @slide], 
+                      wrapper: :horizontal_form,  
+                      wrapper_mappings: {
+                        boolean: :horizontal_boolean
+                      }) do |f| %>
   <%= f.error_notification %>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <div class="banner m-b-20">
@@ -14,21 +18,6 @@
       <% end %>
     </div>
   </div>
-  <div class="form-group row">
-    <label class="col-sm-4 control-label">Imagen</label>
-    <div class="col-sm-8">
-      <div class="input-group" style="100%">
-        <span class="input-group-btn">
-          <span class="btn btn-primary btn-file btn-add" style="width:100%;">
-            Examinar&hellip; <%= f.file_field :image, 'accept': 'image/x-png, image/jpeg', class: 'fill-one' %>
-          </span>
-        </span>
-        <input type="text" class="form-control" readonly aria-label="<%= :image %>", id="nn-image-name" value="<%= f.object.image_file_name if f.object.image.exists?%>">
-      </div>
-      <span class="glyphicon" aria-hidden="true"></span>
-      <span class="nn-msg form-control-feedback-msg"></span>
-    </div>
-  </div>
   <div id="image-options">
     <% if f.object.image.exists? && f.object.id %>
       <div class="m-b-10" data-toggle="buttons" style="width:100%;">
@@ -38,49 +27,18 @@
       </div>
     <% end %>
   </div>
-  <div class="form-group row">
-    <%= f.label :title, 'Título', class: "col-sm-4 control-label" %>
-    <div class="col-sm-8">
-      <%= f.input :title, input_html: { class: 'form-control '} %>
-      <span class="glyphicon" aria-hidden="true"></span>
-      <span class="nn-msg form-control-feedback-msg"></span>
-    </div>
-  </div>
-  <div class="form-group row">
-    <%= f.label :caption, 'Texto', class: "col-sm-4 control-label" %>
-    <div class="col-sm-8">
-      <%= f.input :caption, input_html: { class: 'form-control '} %>
-      <span class="glyphicon" aria-hidden="true"></span>
-      <span class="nn-msg form-control-feedback-msg"></span>
-    </div>
-  </div>
-  <div class="form-group row">
-    <%= f.label :position, 'Orden', class: "col-sm-4 control-label" %>
-    <div class="col-sm-8">
-      <%= f.input :position, input_html: { class: 'form-control '} %>
-      <span class="glyphicon" aria-hidden="true"></span>
-      <span class="nn-msg form-control-feedback-msg"></span>
-    </div>
-  </div>
-  <div class="form-group row">
-    <%= f.label :video_url, 'Link video', class: "col-sm-4 control-label" %>
-    <div class="col-sm-8">
-      <%= f.input :video_url, input_html: { class: 'form-control fill-one', type: :string } %>
-      <span class="glyphicon" aria-hidden="true"></span>
-      <span class="nn-msg form-control-feedback-msg"></span>
-    </div>
-  </div>
-  <div class="form-group row">
-    <%= f.label :active, 'Publicar', class: "col-sm-4 control-label" %>
-    <div class="col-sm-8">
-      <div class="checkbox-small">
-        <%= f.input :active %>
-      </div>
-    </div>
-  </div>
-  <div class="form-group row">
-    <div class="col-md-3 pull-right">
-      <%= f.submit 'Guardar', class: 'btn btn-success btn-block' %>
-    </div>
-  </div>
+  <%= f.input :image, :wrapper => :horizontal_addon do %>
+    <%= content_tag :span, class: 'input-group-btn' do %>
+      <span class="btn btn-primary btn-file btn-add">
+        Examinar&hellip; <%= f.file_field :image, 'accept': 'image/*', class: 'fill-one' %>
+      </span>
+    <% end %>
+    <input type="text" class="form-control" readonly aria-label="<%= :image %>" id="nn-image-name" value="<%= f.object.image_file_name if f.object.image.exists?%>">
+  <% end %>
+  <%= f.input :title %>
+  <%= f.input :caption %>
+  <%= f.input :position %>
+  <%= f.input :video_url, input_html: {type: :string } %>
+  <%= f.input :active %>
+  <%= f.button :submit, 'Guardar' %>
 <% end %>

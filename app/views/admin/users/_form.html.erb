@@ -1,46 +1,8 @@
-<%= simple_form_for([:admin, @user], wrapper: false, label: false) do |f| %>
-  <div class="form-group row m-t-20">
-    <label class="col-sm-4 control-label">Email</label>
-    <div class="col-sm-8">
-    <%= f.input :email, input_html: { class: 'form-control' }, label: false, wrapper: false %>
-    </div>
-  </div>
-  <div class="form-group row">
-    <label class="col-sm-4 control-label">Rol</label>
-    <div class="col-sm-8">
-      <%= f.input :role, collection: User.roles.keys, label: false, wrapper: false, include_blank: false,  input_html: { class: 'form-control' }  %>
-      <span class="glyphicon" aria-hidden="true"></span>
-      <span class="nn-msg form-control-feedback-msg"></span>
-    </div>
-  </div>
-  <div class="form-group row">
-    <label class="col-sm-4 control-label">Activo</label>
-    <div class="col-sm-8">
-      <div class="checkbox-small inline">
-        <%= f.input :active, as: :radio_buttons, item_wrapper_class: 'radio-inline', label: false, wrapper: false  %>
-      </div>
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <label class="col-sm-4 control-label">Contraseña</label>
-    <div class="col-sm-8">
-      <%= f.input :password, input_html: { class: 'form-control' }, label: false, wrapper: false %>
-      <span class="glyphicon" aria-hidden="true"></span>
-      <span class="nn-msg form-control-feedback-msg"></span>
-    </div>
-  </div>
-  <div class="form-group row">
-    <label class="col-sm-4 control-label">Confirma Contraseña</label>
-    <div class="col-sm-8">
-      <%= f.input :password_confirmation, input_html: { class: 'form-control' }, label: false, wrapper: false %>
-      <span class="glyphicon" aria-hidden="true"></span>
-      <span class="nn-msg form-control-feedback-msg"></span>
-    </div>
-  </div>
-  <div class="form-actions row m-b-20">
-    <div class="col-md-3 pull-right">
-      <%= f.button :submit, class: "btn btn-success btn-block" %>
-    </div>
-  </div>
+<%= simple_form_for([:admin, @user]) do |f| %>
+    <%= f.input :email %>
+    <%= f.input :role, collection: User.roles.keys, include_blank: false  %>
+    <%= f.input :active, as: :radio_buttons, item_wrapper_class: 'radio-inline' %>
+    <%= f.input :password  %>
+    <%= f.input :password_confirmation %>
+    <%= f.button :submit %>
 <% end %>
