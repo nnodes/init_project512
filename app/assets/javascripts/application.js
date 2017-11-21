@@ -66,6 +66,7 @@ $(document).on('turbolinks:load', function() {
         this.findByName(element.name).addClass(errorClass).removeClass(validClass);
       } else {
         $(element).closest('.form-group').removeClass('has-success has-feedback').addClass('has-error has-feedback');
+        $(element).closest('.form-group .form-control').after('<span class="glyphicon"></span>')
         $(element).closest('.form-group').find('span.glyphicon').removeClass('glyphicon-ok form-control-feedback').addClass('glyphicon-remove form-control-feedback');
       }
     },
@@ -74,6 +75,7 @@ $(document).on('turbolinks:load', function() {
         this.findByName(element.name).removeClass(errorClass).addClass(validClass);
       } else {
         $(element).closest('.form-group').removeClass('has-error has-feedback').addClass('has-success has-feedback');
+        $(element).closest('.form-group .form-control').after('<span class="glyphicon"></span>')
         $(element).closest('.form-group').find('span.glyphicon').removeClass('glyphicon-remove form-control-feedback').addClass('glyphicon-ok form-control-feedback');
       }
     },
