@@ -62,6 +62,7 @@ $(document).on('turbolinks:load', function() {
 
   $.validator.setDefaults({
     highlight: function (element, errorClass, validClass) {
+      console.log('highlight!')
       if (element.type === "radio") {
         this.findByName(element.name).addClass(errorClass).removeClass(validClass);
       } else {
@@ -71,6 +72,7 @@ $(document).on('turbolinks:load', function() {
       }
     },
     unhighlight: function (element, errorClass, validClass) {
+      console.log('UNUNhighlight!')
       if (element.type === "radio") {
         this.findByName(element.name).removeClass(errorClass).addClass(validClass);
       } else {
@@ -80,6 +82,8 @@ $(document).on('turbolinks:load', function() {
       }
     },
     errorPlacement: function(error, element) {
+      console.log('error', error)
+      console.log(element)
       error.appendTo($(element).closest('.form-group').find('.nn-msg').addClass('text-danger'));
     }
   });
