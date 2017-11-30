@@ -30,10 +30,10 @@
   <%= f.input :image, :wrapper => :horizontal_addon do %>
     <%= content_tag :span, class: 'input-group-btn' do %>
       <span class="btn btn-primary btn-file btn-add">
-        Examinar&hellip; <%= f.file_field :image, 'accept': 'image/x-png, image/jpeg', class: 'fill-one' %>
+        Examinar&hellip; <%= f.file_field :image, 'accept': 'image/*', class: 'fill-one' %>
       </span>
     <% end %>
-    <input type="text" class="form-control" readonly aria-label="<%= :image %>", id="nn-image-name" value="<%= f.object.image_file_name if f.object.image.exists?%>">
+    <input type="text" class="form-control" readonly aria-label="<%= :image %>" id="nn-image-name" value="<%= f.object.image_file_name if f.object.image.exists?%>">
   <% end %>
   <%= f.input :title %>
   <%= f.input :caption %>
