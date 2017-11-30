@@ -2,7 +2,8 @@
 //= require rails-ujs
 //= require bootstrap-sprockets
 //= require jasny-bootstrap.min
-//= require dataTables/jquery.dataTables
+//= require datatables.net/js/jquery.dataTables
+//= require datatables.net-bs/js/dataTables.bootstrap
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.es.js
 //= require turbolinks

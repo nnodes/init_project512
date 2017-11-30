@@ -2,9 +2,9 @@
 @import 'variables';
 @import 'bootstrap';
 @import 'jasny-bootstrap.min';
-@import "bootstrap-datepicker3";
-@import "datatables-bootstrap";
-@import "jquery.Jcrop";
+@import 'bootstrap-datepicker3';
+@import 'datatables.net-bs/css/dataTables.bootstrap';
+@import 'jquery.Jcrop';
 
 
 html {
@@ -34,6 +34,21 @@ p {
     display: none;
   }
 }
+* {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    outline: none !important;
+   }
+   :focus {
+       outline: none !important;
+       box-shadow: none !important;
+      //  color: rgba(0, 0, 0, 0);
+   }
+input:focus {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    outline: none !important;
+    box-shadow: none !important;
+   //  color: rgba(0, 0, 0, 0);
+}
 .alert {
   position: fixed;
   font-size: 14px;
@@ -44,7 +59,9 @@ p {
   -webkit-box-shadow: 0 0 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.175);
 }
-
+.pagination > li > a, .pagination > li > span {
+  padding: 6px;
+}
 .btn-border {
   background: transparent;
   &.btn-primary {
