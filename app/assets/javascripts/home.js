@@ -1,5 +1,3 @@
-//= require init_youtube
-
 $(document).on("turbolinks:load", function() {
 
   if ($('div[id*="youtube-player-"').length > 0){

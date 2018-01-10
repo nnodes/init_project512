@@ -7,10 +7,15 @@ $(document).on('turbolinks:before-cache', function(){
 });
 
 $(document).on('turbolinks:load', function() {
-  $('.nn-date-filter').on('change', function(){
+
+  $('.nn-users-date-filter').datepicker({
+    format: 'dd/mm/yyyy',
+    language: 'es'
+  });
+  
+  $('.nn-users-date-filter').on('change', function(){
     adminUsersDatatable.draw();
   });
-
 
   adminUsersDatatable = $('.nn-admin-users-datatable').DataTable({
     sPaginationType: 'full_numbers',

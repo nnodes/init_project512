@@ -1,5 +1,3 @@
-//= require admin/init_ckeditor
-
 $(document).on("turbolinks:load", function() {
   $('#page_title').on('keyup', function(){
     var invalids = {' ': '-', 'á': 'a','é': 'e','í': 'i','ó': 'o','ú': 'u',

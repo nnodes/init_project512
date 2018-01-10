@@ -9,11 +9,11 @@
 <div class="row m-b-15">
   <div class="col-md-2 col-md-offset-8">
     <p class="m-t-10"><small>Desde</small></p>
-    <%= text_field_tag 'f_start_date', nil , class: "datepicker nn-date-filter form-control", placeholder: "dd/mm/yyyy", readonly: true %>
+    <%= text_field_tag 'f_start_date', nil , class: "nn-users-date-filter form-control", placeholder: "dd/mm/yyyy", readonly: true %>
   </div>
   <div class="col-md-2">
     <p class="m-t-10"><small>Hasta</small></p>
-    <%= text_field_tag 'f_end_date', (Date.today).strftime('%d/%m/%Y'), class: "datepicker nn-date-filter form-control", placeholder: "dd/mm/yyyy", readonly: true %>
+    <%= text_field_tag 'f_end_date', (Date.today).strftime('%d/%m/%Y'), class: "nn-users-date-filter form-control", placeholder: "dd/mm/yyyy", readonly: true %>
   </div>
 </div>
 <div class="table-responsive">

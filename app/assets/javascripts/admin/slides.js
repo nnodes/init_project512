@@ -1,8 +1,3 @@
-//= require jquery.Jcrop
-//= require init_youtube
-//= require admin/init_crop
-//= require admin/upload_button
-
 var createRules = {
   'slide[image]': {
       require_from_group: [1, ".fill-one"]
@@ -46,7 +41,7 @@ $(document).on('turbolinks:load page:restore', function(){
   $('#nn-del-image').on('ajax:success', function(){
     addRequire();
   })
-  if($("form").length > 0){
+  if($('#nn-image-name').length > 0 && $("form").length > 0){
     $("form").validate({
       rules: $('#nn-image-name').val().length > 0 ? updateRules : createRules
     });

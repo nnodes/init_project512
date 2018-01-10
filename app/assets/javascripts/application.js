@@ -10,6 +10,9 @@
 //= require jquery.validate
 //= require jquery.validate.additional-methods
 //= require jquery.validate.localization/messages_es
+//= require jquery.Jcrop
+//= require_tree .
+//= require_tree ./admin
 
 
 var defaultDatatable;
@@ -73,7 +76,6 @@ $(document).on('turbolinks:load', function() {
       }
     },
     unhighlight: function (element, errorClass, validClass) {
-      console.log('UNUNhighlight!')
       if (element.type === "radio") {
         this.findByName(element.name).removeClass(errorClass).addClass(validClass);
       } else {

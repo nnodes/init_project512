@@ -13,12 +13,5 @@ Rails.application.config.assets.precompile += %w(ckeditor/config.js)
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
-controller_names = Dir[Rails.root.join('app/controllers/*_controller.rb')].map { |path| path.match(/(\w+)_controller.rb/); $1 }.compact
-controller_names = controller_names - ['application']
-admin_controller_names = Dir[Rails.root.join('app/controllers/admin/*_controller.rb')].map { |path| path.match(/(\w+)_controller.rb/); 'admin/'+$1 }.compact
-admin_controller_names = admin_controller_names - ['admin/admin']
 
-(controller_names + admin_controller_names).each do |controller|
-  Rails.application.config.assets.precompile += ["#{controller}.js"]
-end
 Rails.application.config.assets.precompile += %w( navmenu.css )
