@@ -33,7 +33,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # ADDED
-gem 'pg'
+gem 'pg', '~> 0.21'
 gem "awesome_print"
 gem 'devise'
 gem 'cancancan'
