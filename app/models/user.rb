@@ -12,6 +12,6 @@ class User < ApplicationRecord
   end
 
   def ability
-    @ability ||= Ability.new(self, 'Admin')
+    @ability ||= Ability.new(self, admin? ? 'Admin' : nil)
   end
 end
