@@ -26,7 +26,7 @@ function addRequire(){
 }
 $(document).on('turbolinks:load', function(){
 
-  if($('div[id*="youtube-player-"').length > 0){
+  if($('div[id*="youtube-player-"]').length > 0){
     loadYoutube();
   }
 });
