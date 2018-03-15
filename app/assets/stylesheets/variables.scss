@@ -36,7 +36,7 @@ $link-color:            $brand-primary !default;
 //** Link hover color set via `darken()` function.
 $link-hover-color:      darken($link-color, 15%) !default;
 //** Link hover decoration.
-$link-hover-decoration: underline !default;
+$link-hover-decoration: none !default;
 
 
 //== Typography
@@ -205,7 +205,7 @@ $input-border-radius-large:      $border-radius-large !default;
 $input-border-radius-small:      $border-radius-small !default;
 
 //** Border color for inputs on focus
-$input-border-focus:             #66afe9 !default;
+$input-border-focus:             $brand-primary !default;
 
 //** Placeholder text color
 $input-color-placeholder:        #999 !default;

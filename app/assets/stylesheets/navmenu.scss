@@ -1,11 +1,4 @@
 @import 'variables';
-
-html, body {
-  height: 100%;
-}
-body {
-  padding: 50px 0 0 0;
-}
 .navbar-toggle {
   float: left;
   margin-left: 15px;
@@ -29,58 +22,6 @@ body {
     background: none;
     border: none;
   }
-  // .navmenu-fixed-right {
-  //   right: auto !important;
-  //   left: 0 !important;
-  // }
-}
-.navmenu-default {
-  background-color: $brand-primary;
-  border-color: #e7e7e7;
-  .navmenu-brand {
-    width: 210px;
-    margin: 20px auto;
-    padding: 0;
-    .brand {
-      width: 110px;
-      margin: 0 auto;
-      display: block;
-    }
-    .user {
-      p {
-        color: white;
-        max-width: 160px;
-      }
-    }
-  }
-  .navmenu-nav {
-    li {
-      a {
-        color: white;
-        padding-left: 50px;
-        @media (max-width: 992px) {
-          padding-left: 20px;
-        }
-        i, img {
-          margin-right: 10px;
-        }
-        &:hover, &:focus {
-          background: lighten($brand-primary, 5%);
-          color: white;
-        }
-      }
-      &.active {
-        a {
-          background: darken($brand-primary, 5%);
-          color: white;
-          &:hover, &:focus {
-            background: darken($brand-primary, 8%);
-            color: white;
-          }
-        }
-      }
-    }
-  }
 }
 @media (max-width: 992px) {
   .navmenu,
@@ -93,6 +34,3 @@ body {
    left: 320px;
   }
 }
-// body {
-//   left: 0;
-// }

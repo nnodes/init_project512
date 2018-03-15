@@ -98,12 +98,12 @@ $(document).on('turbolinks:load', function() {
 
   $(window).scroll(function(){
     if($(window).scrollTop() <= 200 ){
-      $('.home-nav').removeClass('affix');
-      $('.home-nav').addClass('affix-top');
+      $('.nn-home-nav').removeClass('affix');
+      $('.nn-home-nav').addClass('affix-top');
     }
     else{
-      $('.home-nav').removeClass('affix-top');
-      $('.home-nav').addClass('affix');
+      $('.nn-home-nav').removeClass('affix-top');
+      $('.nn-home-nav').addClass('affix');
     }
   });
 });
