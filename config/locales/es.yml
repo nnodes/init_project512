@@ -25,49 +25,50 @@ es:
     links:
       edit: "Editar"
       new: "Nuevo"
+      show: "Ver"
+      destroy: "Eliminar"
+      back: "Volver"
     submit:
-      user:
-        create: "Crear Usuario"
-        submit: "Guardar Usuario"
-        update: "Actualizar Usuario"
-      question:
-        create: "Agregar Nueva Pregunta"
-        submit: "Guardar Pregunta"
-        update: "Actualizar Pregunta"
-      reported:
-        create: "Agregar Denuncia"
-        submit: "Guardar Denuncia"
-        update: "Actualizar Denuncia"
-      answer:
-        create: 'Agregar Respuesta'
-        submit: 'Guardar Respuesta'
-        update: 'Actualizar Respuesta'
-      discussion:
-        create: 'Agregar Tema'
-        submit: 'Guardar Tema'
-        update: 'Actualizar Tema'
-      tag:
-        create: 'Agregar Tag'
-        submit: 'Guardar Tag'
-        update: 'Actualizar Tag'
+      create: "Agregar %{model}"
+      submit: "Guardar %{model}"
+      update: "Actualizar %{model}"
   activerecord:
+    models:
+      user: "Usuario"
+      slide: "Banner"
+      page: "Página"
+      setting: "Configuración"
     attributes:
       user:
+        name: "Nombre"
+        last_name: "Apellido"
+        active: "Activo"
+        password: "Contraseña"
+        password_confirmation: "Confirmar contraseña"
         roles:
-          user: Usuario
-          public_figure: Figura Pública
-          admin: Administrador
+          user: "Usuario"
+          admin: "Administrador"
+      slide:
+        image: "Imagen"
+        title: "Titulo"
+        caption: "Subtítulo"
+        position: "Posición"
+        active: "Activo"
+      page: 
+        title: "Título"
+        active: "Activo"
+        content: "Contenido"
     errors:
       messages:
-        record_invalid: 'Campo inválido'
+        record_invalid: "Campo inválido"
       models:
         user:
           attributes:
             reset_password_token:
               invalid: "Token inválido"
             current_password:
-              invalid: 'La contraseña es incorrecta.'
-              blank: 'Debe ingresar su contraseña.'
+              invalid: "La contraseña es incorrecta."
+              blank: "Debe ingresar su contraseña."
             password_confirmation:
               confirmation: 'Las contraseñas no coinciden.'
             password:
@@ -87,24 +88,3 @@ es:
               less_than: 'La imagen elegida supera el peso máximo (5 MB).'
             avatar_2:
               less_than: 'La imagen elegida supera el peso máximo (5 MB).'
-        discussion:
-          attributes:
-            name:
-              blank: 'Nombre no puede estar en blanco.'
-            discussion_users:
-              too_short: 'Debe seleccionar al menos una usuario'
-            avatar:
-              less_than: 'La imagen elegida supera el peso máximo (5 MB).'
-            avatar_2:
-              less_than: 'La imagen elegida supera el peso máximo (5 MB).'
-        answer:
-          attributes:
-            discussion_user_id:
-              blank: 'Debe seleccionar un usuario'
-              taken: 'El usuario seleccionado ya tiene asociada una respuesta a esta pregunta'
-            link:
-              blank: 'Link no puede ser blanco.'
-        tag:
-          attributes:
-            name:
-              blank: 'Nombre no puede ser blanco.'
