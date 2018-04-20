@@ -22,6 +22,9 @@ es:
         delimiter: "."
         precision: 0
   helpers:
+    title: 
+      new: "Nuevo"
+      edit: "Editar"
     links:
       edit: "Editar"
       new: "Nuevo"
