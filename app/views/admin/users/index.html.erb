@@ -1,17 +1,17 @@
 <div class="row">
-  <div class="col-md-9">
+  <div class="col-md-9 col-xs-8">
     <h3 class="text-uppercase">Usuarios</h3>
   </div>
-  <div class="col-md-3">
-    <%= link_to 'Exportar', admin_users_path(format: :xlsx), class: 'btn btn-primary btn-block btn-sm m-t-20 text-uppercase' %>
+  <div class="col-md-3 col-xs-4">
+    <%= link_to 'Exportar', admin_users_path(format: :xlsx), class: 'btn btn-primary btn-block m-t-20' %>
   </div>
 </div>
-<div class="row m-b-15">
-  <div class="col-md-2 col-md-offset-8">
+<div class="row m-b-20">
+  <div class="col-md-2 col-md-offset-8 col-xs-6 col-xs-offset-0">
     <p class="m-t-10"><small>Desde</small></p>
     <%= text_field_tag 'f_start_date', nil , class: "nn-users-date-filter form-control", placeholder: "dd/mm/yyyy", readonly: true %>
   </div>
-  <div class="col-md-2">
+  <div class="col-md-2 col-xs-6">
     <p class="m-t-10"><small>Hasta</small></p>
     <%= text_field_tag 'f_end_date', (Date.today).strftime('%d/%m/%Y'), class: "nn-users-date-filter form-control", placeholder: "dd/mm/yyyy", readonly: true %>
   </div>
@@ -25,10 +25,9 @@
         <th>Rol</th>
         <th>Registro</th>
         <th>Activo</th>
-        <th style="width:140px;" data-orderable="false"></th>
+        <th style="width:140px;min-width:140px;max-width:140px;" data-orderable="false"></th>
       </tr>
     </thead>
-
     <tbody>
     </tbody>
   </table>

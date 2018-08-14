@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-8 col-xs-12">
+    <h3 class="text-uppercase"><%= singular_table_name.titleize %></h3>
+  </div>
+  <div class="col-md-2 col-xs-6">
+    <%%= link_to "<%= I18n.t('helpers.links.edit') %>", edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: "btn btn-warning btn-block m-t-20"%>
+  </div>
+  <div class="col-md-2 col-xs-6">
+    <%%= link_to "<%= I18n.t('helpers.links.back') %>", <%= index_helper %>_path, class: "btn btn-default btn-block m-t-20"%>
+  </div>
+</div>
+<% attributes.reject(&:password_digest?).each do |attribute| -%>
+    <p>
+        <strong><%= attribute.human_name %>:</strong>
+        <%%= @<%= singular_table_name %>.<%= attribute.name %> %>
+    </p>
+<% end -%>

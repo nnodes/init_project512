@@ -1,9 +1,9 @@
 <div class="row">
-  <div class="col-md-9">
+  <div class="col-md-9 col-xs-8">
     <h3 class="text-uppercase">Banner</h3>
   </div>
-  <div class="col-md-3">
-    <%= link_to 'Nuevo banner', new_admin_slide_path, class: 'btn btn-primary btn-block btn-sm m-t-20 text-uppercase' %>
+  <div class="col-md-3 col-xs-4">
+    <%= link_to 'Nuevo banner', new_admin_slide_path, class: 'btn btn-primary btn-block m-t-20' %>
   </div>
 </div>
 <div class="banner m-b-20">
@@ -11,28 +11,29 @@
     <%= render partial: 'slides/home_carousel', locals: { slides: @slides.where(active: true) } %>
   </div>
 </div>
-
-<table class="table table-striped nn-default-datatable m-b-20">
-  <thead>
-    <tr>
-      <th>Orden</th>
-      <th>Título</th>
-      <th>Activo</th>
-      <th>Fecha de creación</th>
-      <th style="width: 140px;"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @slides.each do |slide| %>
+<div class="table-responsive">
+  <table class="table table-striped nn-default-datatable m-b-20">
+    <thead>
       <tr>
-        <td><%= slide.position %></td>
-        <td><%= slide.title %></td>
-        <td><%= slide.active ? 'Si' : 'No' %></td>
-        <td><%= slide.created_at %></td>
-        <td><%= link_to 'Ver', admin_slide_path(slide), class: "btn btn-success btn-xs m-lr-5" %>
-            <%= link_to 'Editar', edit_admin_slide_path(slide),  class: "btn btn-warning btn-xs m-lr-5" %>
-            <%= link_to 'Eliminar', admin_slide_path(slide), class: "btn btn-danger btn-xs m-lr-5", method: :delete, data: { confirm: '¿Estás seguro de eliminar este banner?' } %></td>
+        <th>Orden</th>
+        <th>Título</th>
+        <th>Activo</th>
+        <th>Fecha de creación</th>
+        <th style="width:140px;min-width:140px;max-width:140px;" data-orderable="false"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @slides.each do |slide| %>
+        <tr>
+          <td><%= slide.position %></td>
+          <td><%= slide.title %></td>
+          <td><%= slide.active ? 'Si' : 'No' %></td>
+          <td><%= slide.created_at %></td>
+          <td><%= link_to 'Ver', admin_slide_path(slide), class: "btn btn-success btn-xs" %> 
+              <%= link_to 'Editar', edit_admin_slide_path(slide),  class: "btn btn-warning btn-xs" %> 
+              <%= link_to 'Eliminar', admin_slide_path(slide), class: "btn btn-danger btn-xs", method: :delete, data: { confirm: '¿Estás seguro de eliminar este banner?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

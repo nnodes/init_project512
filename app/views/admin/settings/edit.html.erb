@@ -1,10 +1,10 @@
-<%= form_tag(admin_settings_path, method: "post", html: { class: "form-horizontal"}) do %>
+<%= form_tag(admin_settings_path, method: "post") do %>
 <div class="row">
-  <div class="col-md-9">
-    <h3 class="f-30 text-uppercase">Configuraciones generales</h3>
+  <div class="col-md-9 col-xs-8">
+    <h3 class="text-uppercase">Configuraciones generales</h3>
   </div>
-  <div class="col-md-3">
-    <%= link_to "Volver", 'javascript:history.go(-1);', class: "btn btn-default btn-block btn-sm m-t-20 text-uppercase" %>
+  <div class="col-md-3 col-xs-4">
+    <%= link_to "Volver", 'javascript:history.go(-1);', class: "btn btn-default btn-block m-t-20" %>
   </div>
 </div>
 <table class="table table-condensed admin-datatable display m-b-20">
@@ -16,18 +16,16 @@
   </thead>
   <tbody></tbody>
     <tr class="fields">
-      <td>
+      <td class="middle">
         Ejemplo
       </td>
       <td colspan="2">
-        <%= text_field_tag 'example', @setting['example'], placeholder: "Ejemplo", class: "form-control input-sm" %>
+        <%= text_field_tag 'example', @setting['example'], placeholder: "Ejemplo", class: "form-control" %>
       </td>
     </tr>
   </tbody>
 </table>
-<div class="form-actions row">
-  <div class="col-md-3 pull-right">
-    <%= submit_tag "Guardar", class: "btn btn-success btn-block" %>
-  </div>
+<div class="form-actions clearfix">
+  <%= submit_tag "Guardar", class: "btn btn-success pull-right" %>
 </div>
 <% end %>

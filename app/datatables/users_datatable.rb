@@ -26,7 +26,9 @@ class UsersDatatable
       array << user.role
       array << (I18n.l user.created_at)
       array << (user.active ? 'Sí' : 'No')
-      array << link_to('Ver', admin_user_path(user), class: 'btn btn-xs btn-success')+" "+link_to('Editar', edit_admin_user_path(user), class: 'btn btn-xs btn-warning')+" "+link_to('Eliminar', admin_user_path(user), method: :delete, data: { confirm: '¿Estás seguro que deseeas eliminar este usuario?' }, class: 'btn btn-xs btn-danger')
+      array << link_to('Ver', admin_user_path(user), class: 'btn btn-xs btn-success')+" "+
+               link_to('Editar', edit_admin_user_path(user), class: 'btn btn-xs btn-warning')+" "+
+               link_to('Eliminar', admin_user_path(user), method: :delete, data: { confirm: '¿Estás seguro que deseeas eliminar este usuario?' }, class: 'btn btn-xs btn-danger')
       array
     end
   end

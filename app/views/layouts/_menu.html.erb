@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-fixed-top <%= affix?(params) ? 'affix-top home-nav' : 'affix' %>">
+<nav class="navbar navbar-default navbar-fixed-top <%= affix?(params) ? 'affix-top nn-home-nav' : 'affix' %>">
   <div class="container-fluid">
     <div class="navbar-header">
       <button id="toggle-navbar" type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="#navbar-home-sidebar" data-canvas="body" data-user="<%=user_signed_in?%>">
@@ -8,10 +8,10 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="/">
-        <img class="logos" alt="Nnodes" src="<%= asset_path 'logo.svg' %>" height="20">
+        <img alt="Nnodes" src="<%= asset_path 'logo.svg' %>">
       </a>
     </div>
-    <div class="collapse navbar-collapse hidden-sm hidden-xs" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse hidden-sm hidden-xs">
       <% if user_signed_in? %>
       <ul class="nav navbar-nav">
         <li class="<%= 'active' if params[:controller] == 'home' %>"><%= link_to "Home", authenticated_root_path %></li>
