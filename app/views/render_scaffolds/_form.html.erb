@@ -1,0 +1,12 @@
+<%= simple_form_for(@render_scaffold) do |f| %>
+  <%= f.error_notification %>
+    <%= f.input :titulo %>
+    <%= f.input :contenido %>
+    <%= f.input :user_id %>
+
+  <div class="row">
+    <div class="col-md-offset-8 col-md-4">
+      <%= f.button :submit %>
+    </div>
+  </div>
+<% end %>
