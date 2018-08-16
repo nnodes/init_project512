@@ -1,0 +1,2 @@
+class RenderScaffold < ApplicationRecord
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170713135000) do
+ActiveRecord::Schema.define(version: 20180816185319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(version: 20170713135000) do
     t.datetime "updated_at", null: false
     t.boolean "destroyable", default: true
     t.index ["user_id"], name: "index_pages_on_user_id"
+  end
+
+  create_table "render_scaffolds", force: :cascade do |t|
+    t.string "titulo"
+    t.string "contenido"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "settings", force: :cascade do |t|
