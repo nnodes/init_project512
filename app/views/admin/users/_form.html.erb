@@ -4,5 +4,9 @@
     <%= f.input :active, as: :radio_buttons, item_wrapper_class: 'radio-inline' %>
     <%= f.input :password  %>
     <%= f.input :password_confirmation %>
-    <%= f.button :submit %>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-8">
+        <%= f.button :submit %>
+      </div>
+    </div>
 <% end %>

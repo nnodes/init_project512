@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :posts
   mount Ckeditor::Engine => '/ckeditor'
   namespace :admin do
     resources :settings, only: [:index] do
