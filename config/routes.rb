@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :render_scaffolds
   mount Ckeditor::Engine => '/ckeditor'
   namespace :admin do
     resources :settings, only: [:index] do
