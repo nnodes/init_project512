@@ -6,7 +6,7 @@ SimpleForm.setup do |config|
   # stack. The options given below are used to wrap the
   # whole input.
   config.error_notification_class = 'alert alert-danger'
-  config.button_class = 'btn btn-primary pull-right'
+  config.button_class = 'btn btn-primary btn-block'
   config.boolean_label_class = nil
 
   config.wrappers :vertical_form, tag: 'div', class: 'form-group', error_class: 'has-error', success_class: 'has-success' do |b|
