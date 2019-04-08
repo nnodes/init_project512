@@ -15,3 +15,4 @@ Rails.application.config.assets.precompile += %w(ckeditor/config.js)
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
 Rails.application.config.assets.precompile += %w( navmenu.css )
+Rails.application.config.assets.paths << Rails.root.join('app', 'assets', 'fonts')

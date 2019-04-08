@@ -1,44 +1,55 @@
 @import 'variables';
+
 html {
   position: relative;
   min-height: 100%;
 }
+
 body {
   margin-bottom: 60px;
   padding-top: 51px;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+
   &.affix-padding {
     padding-top: 0;
   }
+
   @media (max-width: 992px) {
     padding-top: 56px;
   }
 }
+
 #notice {
   margin: 0;
+
   &:empty {
     display: none;
   }
 }
+
 p {
   &:empty {
     display: none;
   }
 }
+
 * {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   outline: none !important;
 }
+
 :focus {
   outline: none !important;
   box-shadow: none !important;
 }
+
 input:focus {
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    outline: none !important;
-    box-shadow: none !important;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  outline: none !important;
+  box-shadow: none !important;
 }
+
 .alert {
   position: fixed;
   font-size: 14px;
@@ -49,38 +60,47 @@ input:focus {
   -webkit-box-shadow: 0 0 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.175);
 }
+
 // .pagination > li > a, .pagination > li > span {
 //   padding: 6px;
 // }
 .btn-border {
   background: transparent;
+
   &.btn-primary {
     border: 1px solid $brand-primary;
     color: $brand-primary;
   }
+
   &.btn-success {
     border: 1px solid $brand-success;
     color: $brand-success;
   }
+
   &.btn-info {
     border: 1px solid $brand-info;
     color: $brand-info;
   }
+
   &.btn-warning {
     border: 1px solid $brand-warning;
     color: $brand-warning;
   }
+
   &.btn-danger {
     border: 1px solid $brand-danger;
     color: $brand-danger;
   }
 }
+
 .control-label {
   display: block;
+
   abbr {
     display: none;
   }
 }
+
 .form-group {
   &.radio_buttons {
     .radio {
@@ -88,7 +108,8 @@ input:focus {
         padding-left: 0;
         margin-top: 0;
       }
-      input[type="radio"] {
+
+      input[type='radio'] {
         display: block;
         width: 18px;
         height: 18px;
@@ -98,6 +119,7 @@ input:focus {
         background: transparent;
         -webkit-appearance: none;
         margin-top: 1px;
+
         &:before {
           display: table;
           width: 100%;
@@ -110,6 +132,7 @@ input:focus {
           background: #fff;
           border-color: #ccc;
         }
+
         &:after {
           position: absolute;
           top: 25%;
@@ -124,29 +147,34 @@ input:focus {
           border-top: 0;
           border-right: 0;
         }
+
         &:checked {
           &:before {
             border-width: 1px;
             border-color: $brand-primary;
             background: $brand-primary;
           }
+
           &:after {
             opacity: 1;
           }
         }
+
         &:focus {
           outline: none;
           box-shadow: none;
         }
-      } 
+      }
     }
   }
+
   .checkbox {
     &.radio-inline {
       padding-left: 0;
       margin-top: 0;
     }
-    input[type="checkbox"] {
+
+    input[type='checkbox'] {
       display: block;
       width: 18px;
       height: 18px;
@@ -156,6 +184,7 @@ input:focus {
       background: transparent;
       -webkit-appearance: none;
       margin-top: 1px;
+
       &:before {
         display: table;
         width: 100%;
@@ -168,6 +197,7 @@ input:focus {
         background: #fff;
         border-color: #ccc;
       }
+
       &:after {
         position: absolute;
         top: 14%;
@@ -185,63 +215,113 @@ input:focus {
         border-top: 0;
         border-right: 0;
       }
+
       &:checked {
         &:before {
           border-width: 1px;
           border-color: $brand-primary;
           background: $brand-primary;
         }
+
         &:after {
           opacity: 1;
         }
       }
+
       &:focus {
         outline: none;
         box-shadow: none;
       }
-    } 
+    }
   }
 }
+
 .form-control-feedback {
   right: 15px;
+
   &.link {
     right: 105px;
   }
 }
+
 .form-control-feedback-msg {
   label {
     font-weight: 400;
   }
 }
+
 .row-eq-height {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display:         flex;
+  display: flex;
 }
+
 .row-flex-center {
   justify-content: center;
   align-items: center;
 }
+
 .full-height-login {
   height: calc(100vh - 116px);
 }
-/*MARGENES*/
-.m-t-0 {margin-top:0px !important;}
-.m-t-10 {margin-top:10px !important;}
-.m-t-20 {margin-top:20px !important;}
-.m-t-30 {margin-top:30px !important;}
-.m-t-40 {margin-top:40px !important;}
-.m-t-50 {margin-top:50px !important;}
-.m-t-60 {margin-top:60px !important;}
 
-.m-b-0 {margin-bottom:0px !important;}
-.m-b-10 {margin-bottom:10px !important;}
-.m-b-20 {margin-bottom:20px !important;}
-.m-b-30 {margin-bottom:30px !important;}
-.m-b-40 {margin-bottom:40px !important;}
-.m-b-50 {margin-bottom:50px !important;}
-.m-b-60 {margin-bottom:60px !important;}
+/*MARGENES*/
+.m-t-0 {
+  margin-top: 0px !important;
+}
+
+.m-t-10 {
+  margin-top: 10px !important;
+}
+
+.m-t-20 {
+  margin-top: 20px !important;
+}
+
+.m-t-30 {
+  margin-top: 30px !important;
+}
+
+.m-t-40 {
+  margin-top: 40px !important;
+}
+
+.m-t-50 {
+  margin-top: 50px !important;
+}
+
+.m-t-60 {
+  margin-top: 60px !important;
+}
+
+.m-b-0 {
+  margin-bottom: 0px !important;
+}
+
+.m-b-10 {
+  margin-bottom: 10px !important;
+}
+
+.m-b-20 {
+  margin-bottom: 20px !important;
+}
+
+.m-b-30 {
+  margin-bottom: 30px !important;
+}
+
+.m-b-40 {
+  margin-bottom: 40px !important;
+}
+
+.m-b-50 {
+  margin-bottom: 50px !important;
+}
+
+.m-b-60 {
+  margin-bottom: 60px !important;
+}
 
 table {
   tbody {
@@ -252,26 +332,32 @@ table {
     }
   }
 }
+
 .table-responsive {
   border: none;
 }
+
 .dataTables_wrapper {
   @media (max-width: 992px) {
     .col-sm-6 {
       width: 50%;
       float: left;
     }
+
     .col-sm-5 {
       width: 41.66666667%;
       float: left;
+
       .dataTables_info {
         text-align: left;
         white-space: normal;
       }
     }
+
     .col-sm-7 {
       width: 58.33333333%;
       float: left;
+
       .pagination {
         li {
           a {
@@ -286,15 +372,24 @@ table {
 .navmenu-default {
   background-color: $brand-primary;
   border-color: #e7e7e7;
+
   .navmenu-brand {
     width: 210px;
     margin: 20px auto;
     padding: 0;
+
     .brand {
       width: 110px;
       margin: 0 auto;
       display: block;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
     }
+
     .user {
       p {
         color: white;
@@ -302,26 +397,32 @@ table {
       }
     }
   }
+
   .navmenu-nav {
     li {
       a {
         color: white;
         padding-left: 50px;
+
         @media (max-width: 992px) {
           padding-left: 20px;
         }
+
         i, img {
           margin-right: 10px;
         }
+
         &:hover, &:focus {
           background: lighten($brand-primary, 5%);
           color: white;
         }
       }
+
       &.active {
         a {
           background: darken($brand-primary, 5%);
           color: white;
+
           &:hover, &:focus {
             background: darken($brand-primary, 8%);
             color: white;
