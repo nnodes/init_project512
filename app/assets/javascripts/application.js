@@ -1,16 +1,25 @@
-//= require jquery
-//= require rails-ujs
+//= require jquery3
+//= require popper
 //= require bootstrap-sprockets
-//= require jasny-bootstrap.min
+
+
+//= require rails-ujs
 //= require datatables.net/js/jquery.dataTables
 //= require datatables.net-bs/js/dataTables.bootstrap
-//= require bootstrap-datepicker
-//= require bootstrap-datepicker/locales/bootstrap-datepicker.es.js
 //= require turbolinks
 //= require jquery.validate
 //= require jquery.validate.additional-methods
 //= require jquery.validate.localization/messages_es
 //= require jquery.Jcrop
+
+
+//= require moment
+// If you require timezone data (see moment-timezone-rails for additional file options)
+//= require moment-timezone-with-data
+//= require tempusdominus-bootstrap-4
+
+
+
 //= require_tree .
 //= require_tree ./admin
 

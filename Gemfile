@@ -8,7 +8,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.2'
+gem 'rails', '~> 5.2.3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -40,9 +40,8 @@ gem 'cancancan'
 gem 'dotenv-rails'
 gem 'simple_form'
 gem 'will_paginate'
-gem 'bootstrap-sass', '~> 3.3.6'
-gem 'jasny-bootstrap-rails', '~> 3.1.3'
-gem 'bootstrap-datepicker-rails', '~> 1.6.4'
+# gem 'jasny-bootstrap-rails', '~> 3.1.3'
+# gem 'bootstrap-datepicker-rails', '~> 1.6.4'
 gem 'ckeditor', '~> 4.2.4'
 gem 'paperclip', '~> 5.2.0'
 gem 'jcrop-rails-v2', '~> 0.9.12.3'
@@ -51,6 +50,8 @@ gem 'rubyzip', '>= 1.2.1'
 gem 'axlsx', git: 'https://github.com/randym/axlsx.git'
 gem 'axlsx_rails'
 
+# BOOTSTRAP 4
+gem 'bootstrap', '~> 4.3.1'
 
 
 
