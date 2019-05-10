@@ -1,36 +1,27 @@
-<nav class="navbar navbar-default navbar-fixed-top <%= affix?(params) ? 'affix-top nn-home-nav' : 'affix' %>">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button id="toggle-navbar" type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="#navbar-home-sidebar" data-canvas="body" data-user="<%=user_signed_in?%>">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">
-        <img alt="Nnodes" src="<%= asset_path 'logo.svg' %>">
-      </a>
-    </div>
-    <div class="collapse navbar-collapse hidden-sm hidden-xs">
-    <ul class="nav navbar-nav">
-      <li class="<%= 'active' if params[:controller] == 'home' %>"><%= link_to "Home", authenticated_root_path %></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+  <a class="navbar-brand" href="#">
+    <img alt="Nnodes" src="<%= asset_path 'logo-w.svg' %>">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav">
+      <li class="nav-item <%= 'active' if params[:controller] == 'home' %>"><%= link_to "Home", authenticated_root_path, class: "nav-link" %></li>
       <% if user_signed_in? %>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog"></i><%= current_user.email %> <span class="caret"></span></a>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog"></i><%= current_user.email %> <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <% if can? :manage, User %>
-              <li><%= link_to "ir al Admin", admin_users_path %></li>
+              <li><%= link_to "ir al Admin", admin_users_path, class: "dropdown-item" %></li>
             <% end %>
-            <li><%= link_to 'Cambiar contraseña', edit_user_registration_path %></li>
-            <li><%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to 'Cambiar contraseña', edit_user_registration_path, class: "dropdown-item" %></li>
+            <li><%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
           </ul>
         </li>
       <% else %>
-        <li><%= link_to "Iniciar sesión", new_user_session_path %></li>
+        <li class="nav-item"><%= link_to "Iniciar sesión", new_user_session_path, class: "nav-link" %></li>
       <% end %>
     </ul>
-    </div>
   </div>
 </nav>

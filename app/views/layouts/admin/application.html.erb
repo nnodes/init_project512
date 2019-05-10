@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-100">
   <head>
     <title>Nnodes</title>
     <%= csrf_meta_tags %>
@@ -9,9 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
-  <body>
-    <%= render "layouts/admin/mobile_menu"%>
-    <%= render "layouts/admin/sidebar"%>
+  <body class="d-flex flex-column h-100">
+    <%= render "layouts/admin/menu"%>
     <div class="container">
       <p id="notice"><%= bootstrap_flash %></p>
       <%= yield %>

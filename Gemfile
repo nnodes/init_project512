@@ -52,7 +52,7 @@ gem 'axlsx_rails'
 
 # BOOTSTRAP 4
 gem 'bootstrap', '~> 4.3.1'
-
+gem 'jquery-rails'
 
 
 group :development, :test do

@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+  <a class="navbar-brand" href="#">
+    <img alt="Nnodes" src="<%= asset_path 'logo-w.svg' %>">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to "Home", authenticated_root_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item <%= 'active' if params[:controller] == 'admin/users' %>">
+        <%= link_to "Usuarios", admin_users_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item <%= 'active' if params[:controller] == 'admin/settings' %>">
+        <%= link_to "Configuraciones", admin_settings_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item <%= 'active' if params[:controller] == 'admin/pages' %>">
+        <%= link_to "Páginas", admin_pages_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item <%= 'active' if params[:controller] == 'admin/slides' %>">
+        <%= link_to "Banner", admin_slides_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item"><%= link_to 'Cambiar contraseña', edit_user_registration_path, class: "nav-link" %></li>
+      <li class="nav-item"><%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, class: "nav-link" %></li>
+    </ul>
+  </div>
+</nav>

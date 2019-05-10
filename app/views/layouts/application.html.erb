@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-100">
   <head>
     <title>Nnodes</title>
     <%= csrf_meta_tags %>
@@ -10,9 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
 
-  <body class="<%= 'affix-padding' if affix?(params) %>">
+  <body class="d-flex flex-column h-100">
     <%= render "layouts/menu" %>
-    <%= render "layouts/mobile_sidebar"%>
     <div class="container-fluid">
       <p id="notice"><%= bootstrap_flash %></p>
       <%= yield %>
