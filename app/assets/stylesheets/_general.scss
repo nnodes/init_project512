@@ -47,13 +47,8 @@ input:focus {
   -webkit-box-shadow: 0 0 12px rgba(0, 0, 0, 0.175);
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.175);
 }
-// LABEL
-.control-label {
-  display: block;
-
-  abbr {
-    display: none;
-  }
+.h-100-auto {
+  height: calc(100vh - 56px);
 }
 
 // RADIO AND CHECKBOX
