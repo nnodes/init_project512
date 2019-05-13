@@ -13,9 +13,7 @@
             <%= link_to "¿Olvidaste tu contraseña?", new_password_path(resource_name), class: 'pull-right' %>
           <% end -%>
         </div>
-        <div class="checkbox-small">
-          <%= f.input :remember_me, label: "Recuérdame", as: :boolean if devise_mapping.rememberable? %>
-        </div>
+        <%= f.input :remember_me, wrapper: :custom_boolean, label: "Recuérdame", as: :boolean if devise_mapping.rememberable? %>
       </div>
 
       <div class="form-actions">

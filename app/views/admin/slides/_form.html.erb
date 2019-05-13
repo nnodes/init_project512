@@ -32,6 +32,6 @@
   <%= f.input :caption %>
   <%= f.input :position %>
   <%= f.input :video_url, input_html: {type: :string } %>
-  <%= f.input :active %>
-  <%= f.button :submit, 'Guardar' %>
+  <%= f.input :active, wrapper: :custom_boolean %>
+  <%= f.button :submit, 'Guardar', class: "btn-primary" %>
 <% end %>
